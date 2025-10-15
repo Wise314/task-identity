@@ -39,6 +39,49 @@ class CatastrophicForgettingFullDetection:
         correlation = np.corrcoef(flat_before, flat_after)[0, 1]
         return max(0.0, correlation) if not np.isnan(correlation) else 0.0
     
+
+    def calculate_embedding_identity(self, clf, images1, images2):
+        """Calculate embedding identity using first hidden layer activations"""
+        W1 = clf.coefs_[0]
+        b1 = clf.intercepts_[0]
+        
+        # Forward pass: activation = relu(X @ W + b)
+        hidden1 = np.maximum(0, images1 @ W1 + b1)
+        hidden2 = np.maximum(0, images2 @ W1 + b1)
+        
+        # Mean activation patterns
+        mean_hidden1 = hidden1.mean(axis=0)
+        mean_hidden2 = hidden2.mean(axis=0)
+        
+        if mean_hidden1.std() == 0 or mean_hidden2.std() == 0:
+            return 1.0
+        
+        correlation = np.corrcoef(mean_hidden1, mean_hidden2)[0, 1]
+        return max(0.0, correlation) if not np.isnan(correlation) else 1.0
+
+
+    def calculate_embedding_identity_models(self, clf_before, clf_after, images):
+        """Compare embedding spaces of two different models on same images"""
+        W1_before = clf_before.coefs_[0]
+        b1_before = clf_before.intercepts_[0]
+        
+        W1_after = clf_after.coefs_[0]
+        b1_after = clf_after.intercepts_[0]
+        
+        # Get hidden activations from BOTH models
+        hidden_before = np.maximum(0, images @ W1_before + b1_before)
+        hidden_after = np.maximum(0, images @ W1_after + b1_after)
+        
+        # Compare mean activation patterns
+        mean_before = hidden_before.mean(axis=0)
+        mean_after = hidden_after.mean(axis=0)
+        
+        if mean_before.std() == 0 or mean_after.std() == 0:
+            return 1.0
+        
+        correlation = np.corrcoef(mean_before, mean_after)[0, 1]
+        return max(0.0, correlation) if not np.isnan(correlation) else 1.0
+
     def load_and_split_mnist(self):
         self.log("Loading MNIST...")
         
@@ -118,11 +161,11 @@ class CatastrophicForgettingFullDetection:
         
         return clf_retrained
     
-    def test_forgetting(self, clf, test_images, test_labels, cm_before, acc_before):
+    def test_forgetting(self, clf_before, clf_after, test_images, test_labels, cm_before, acc_before):
         self.log("Testing catastrophic forgetting...", '💥')
         
         # Test on Phase 1 AFTER catastrophic forgetting
-        preds_after = clf.predict(test_images)
+        preds_after = clf_after.predict(test_images)
         cm_after = confusion_matrix(test_labels, preds_after, labels=range(10))
         acc_after = (preds_after == test_labels).mean()
         
@@ -132,6 +175,10 @@ class CatastrophicForgettingFullDetection:
         # Calculate task-identity
         task_identity = self.calculate_task_identity_from_cm(cm_before, cm_after)
         self.log(f"Task-Identity: {task_identity:.3f}", '💥')
+        # Calculate embedding identity (structure similarity)
+        embedding_identity = self.calculate_embedding_identity_models(clf_before, clf_after, test_images)
+        self.log(f"Embedding Identity: {embedding_identity:.3f}", '🧠')
+
         
         # Per-class accuracies for autocorrelation and detection
         class_accs = []
@@ -160,6 +207,7 @@ class CatastrophicForgettingFullDetection:
         self.log(f"Inverted multiplier: {inverted_multiplier:.3f}", '🚀')
         
         self.results['task_identity'] = float(task_identity)
+        self.results['embedding_identity'] = float(embedding_identity)
         self.results['autocorrelation'] = float(autocorr)
         self.results['multiplier'] = float(multiplier)
         self.results['inverted_multiplier'] = float(inverted_multiplier)
@@ -255,7 +303,7 @@ class CatastrophicForgettingFullDetection:
         
         # Test forgetting and calculate task-identity
         task_id, autocorr, inv_mult, class_accs, baseline_acc = self.test_forgetting(
-            clf_forgotten, test_images, test_labels, cm_before, acc_before
+            clf, clf_forgotten, test_images, test_labels, cm_before, acc_before
         )
         
         # Run detection tests
