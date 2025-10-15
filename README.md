@@ -322,15 +322,13 @@ Special thanks to Claude (Anthropic) for assistance in validation testing and do
 ---
 
 ## 🗂️ Repository Structure
-
 ```
 task-identity/
 ├── README.md                                    # This file
 ├── LICENSE                                      # MIT License
 ├── requirements.txt                             # Python dependencies
-├── catastrophic_forgetting_full_detection.py   # Test 1
-├── progressive_noise_validator.py              # Test 2
-├── task_identity_validator.py                  # General validator
+├── catastrophic_forgetting_full_detection.py   # Test 1: Catastrophic Forgetting
+├── progressive_noise_validator.py              # Test 2: Progressive Degradation
 ├── task_identity/                              # Core package
 │   └── __init__.py
 └── results/                                    # Test outputs
