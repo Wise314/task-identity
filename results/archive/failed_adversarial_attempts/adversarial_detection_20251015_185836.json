@@ -1,0 +1,13 @@
+{
+  "test": "adversarial_attack_detection_v3",
+  "timestamp": "20251015_185836",
+  "task_identity_clean": 1.0,
+  "task_identity_adversarial": 0.9982344877766625,
+  "accuracy_clean": 0.9356666666666666,
+  "accuracy_adversarial": 0.8693333333333333,
+  "attack_success_count": 199,
+  "total_attacked": 2807,
+  "attack_success_rate": 7.089419308870427,
+  "accuracy_drop": 0.06633333333333336,
+  "behavioral_change": 0.0017655122233375398
+}

@@ -1,0 +1,16 @@
+{
+  "test": "class_imbalance_detection",
+  "timestamp": "20251015_191700",
+  "majority_class": 0,
+  "majority_ratio": 0.7,
+  "task_identity_overall": 0.8712716592584987,
+  "behavioral_shift": 0.1287283407415013,
+  "balanced_accuracy": 0.9356666666666666,
+  "imbalanced_accuracy": 0.9181818181818182,
+  "majority_class_acc": 0.9387096774193548,
+  "minority_avg_acc": 0.911111111111111,
+  "class_stats": {
+    "0": {
+      "balanced_acc": 0.9483870967741935,
+      "imbalanced_acc": 0.9387096774193548,
+      "imbalanced_count": 

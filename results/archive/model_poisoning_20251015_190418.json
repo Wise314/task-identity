@@ -1,0 +1,10 @@
+{
+  "test": "model_poisoning_detection",
+  "timestamp": "20251015_190418",
+  "poison_rate": 0.2,
+  "task_identity": 0.9983500272640036,
+  "accuracy_clean_model": 0.9356666666666666,
+  "accuracy_poisoned_model": 0.889,
+  "accuracy_degradation": 0.046666666666666634,
+  "behavioral_divergence": 0.00164997273599643
+}

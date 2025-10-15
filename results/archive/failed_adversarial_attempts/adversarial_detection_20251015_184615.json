@@ -1,0 +1,10 @@
+{
+  "test": "adversarial_attack_detection",
+  "timestamp": "20251015_184615",
+  "task_identity_clean": 1.0,
+  "task_identity_adversarial": 0.9999886773940095,
+  "accuracy_clean": 0.9356666666666666,
+  "accuracy_adversarial": 0.934,
+  "accuracy_drop": 0.0016666666666665941,
+  "behavioral_change": 1.132260599046031e-05
+}
