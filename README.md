@@ -277,6 +277,9 @@ calculate_task_identity(y_true_before, y_pred_before,
 - **Requires labels:** Needs true labels for both time periods
 - **Class consistency:** Assumes same set of classes across periods
 - **Sample size:** Requires sufficient samples for stable confusion matrices (recommended: 100+ per period)
+- **Experimental code:** Validation scripts include experimental threshold detection code (multipliers, autocorrelation) - these are NOT part of the core Task-Identity metric
+
+---
 
 ---
 

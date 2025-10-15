@@ -16,11 +16,12 @@ import json
 import os
 from datetime import datetime
 import math
+from task_identity import calculate_task_identity
 
 class ProgressiveNoiseValidator:
     
-    def __init__(self):
-        np.random.seed(42)
+    def __init__(self, random_seed=42):
+        np.random.seed(random_seed)
         self.results = {
             'test': 'progressive_noise_degradation',
             'timestamp': datetime.now().strftime('%Y%m%d_%H%M%S'),
@@ -38,17 +39,6 @@ class ProgressiveNoiseValidator:
         noise = np.random.normal(0, noise_level, images.shape)
         noisy = images + noise
         return np.clip(noisy, 0, 1)  # Keep in valid range
-    
-    def calculate_task_identity_from_cm(self, cm_baseline, cm_noisy):
-        """Compare confusion matrices for behavioral similarity"""
-        flat_baseline = cm_baseline.flatten()
-        flat_noisy = cm_noisy.flatten()
-        
-        if flat_baseline.std() == 0 or flat_noisy.std() == 0:
-            return 0.0
-        
-        correlation = np.corrcoef(flat_baseline, flat_noisy)[0, 1]
-        return max(0.0, correlation) if not np.isnan(correlation) else 0.0
     
     def load_mnist(self):
         self.log("Loading MNIST...")
@@ -114,7 +104,9 @@ class ProgressiveNoiseValidator:
             acc_noisy = (preds_noisy == test_labels).mean()
             
             # Calculate task-identity
-            task_identity = self.calculate_task_identity_from_cm(cm_baseline, cm_noisy)
+            # Get baseline predictions for comparison
+            preds_baseline = clf.predict(test_images)
+            task_identity = calculate_task_identity(test_labels, preds_baseline, test_labels, preds_noisy, labels=range(10))
             
             # Status
             if acc_noisy > 0.9:

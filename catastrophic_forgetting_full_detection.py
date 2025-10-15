@@ -12,11 +12,12 @@ import json
 import os
 from datetime import datetime
 import math
+from task_identity import calculate_task_identity
 
 class CatastrophicForgettingFullDetection:
     
-    def __init__(self):
-        np.random.seed(42)
+    def __init__(self, random_seed=42):
+        np.random.seed(random_seed)
         self.results = {
             'test': 'catastrophic_forgetting_full_detection',
             'timestamp': datetime.now().strftime('%Y%m%d_%H%M%S'),
@@ -28,37 +29,6 @@ class CatastrophicForgettingFullDetection:
     def log(self, msg, icon='📊'):
         print(f"{icon} {msg}")
     
-    def calculate_task_identity_from_cm(self, cm_before, cm_after):
-        """Compare confusion matrices for behavioral similarity"""
-        flat_before = cm_before.flatten()
-        flat_after = cm_after.flatten()
-        
-        if flat_before.std() == 0 or flat_after.std() == 0:
-            return 0.0
-        
-        correlation = np.corrcoef(flat_before, flat_after)[0, 1]
-        return max(0.0, correlation) if not np.isnan(correlation) else 0.0
-    
-
-    def calculate_embedding_identity(self, clf, images1, images2):
-        """Calculate embedding identity using first hidden layer activations"""
-        W1 = clf.coefs_[0]
-        b1 = clf.intercepts_[0]
-        
-        # Forward pass: activation = relu(X @ W + b)
-        hidden1 = np.maximum(0, images1 @ W1 + b1)
-        hidden2 = np.maximum(0, images2 @ W1 + b1)
-        
-        # Mean activation patterns
-        mean_hidden1 = hidden1.mean(axis=0)
-        mean_hidden2 = hidden2.mean(axis=0)
-        
-        if mean_hidden1.std() == 0 or mean_hidden2.std() == 0:
-            return 1.0
-        
-        correlation = np.corrcoef(mean_hidden1, mean_hidden2)[0, 1]
-        return max(0.0, correlation) if not np.isnan(correlation) else 1.0
-
 
     def calculate_embedding_identity_models(self, clf_before, clf_after, images):
         """Compare embedding spaces of two different models on same images"""
@@ -173,7 +143,9 @@ class CatastrophicForgettingFullDetection:
         self.log(f"Forgetting: {((acc_before - acc_after) / acc_before * 100):.1f}%", '🔥')
         
         # Calculate task-identity
-        task_identity = self.calculate_task_identity_from_cm(cm_before, cm_after)
+        # Get predictions from before model for comparison
+        preds_before = clf_before.predict(test_images)
+        task_identity = calculate_task_identity(test_labels, preds_before, test_labels, preds_after, labels=range(10))
         self.log(f"Task-Identity: {task_identity:.3f}", '💥')
         # Calculate embedding identity (structure similarity)
         embedding_identity = self.calculate_embedding_identity_models(clf_before, clf_after, test_images)
