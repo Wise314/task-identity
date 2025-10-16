@@ -2,11 +2,24 @@
 """
 PROGRESSIVE NOISE VALIDATOR
 Test Config 2 on GRADUAL AI degradation via increasing Gaussian noise
-This should create intermediate accuracy values where thresholds can differentiate!
+This should create intermediate accuracy values where thresholds can $
 
 Noise levels: 0% → 5% → 10% → 15% → 20% → 25%
 Expected: Accuracy gradually declines instead of binary collapse
 """
+
+# ============================================================================
+# NOTE: This script contains EXPERIMENTAL threshold detection code
+# ============================================================================
+# The core Task-Identity metric (confusion matrix correlation) is production-
+# ready and validated. This script also includes experimental threshold 
+# tuning methods (v2.0, Config 2) that test various multipliers and 
+# autocorrelation heuristics. These experimental sections are clearly marked.
+#
+# For production use, focus on the core Task-Identity values, not the 
+# experimental threshold detection methods.
+# ============================================================================
+
 
 import numpy as np
 from sklearn.datasets import fetch_openml
@@ -163,6 +176,18 @@ class ProgressiveNoiseValidator:
         return noise_data, acc_baseline, avg_task_identity, autocorr, inverted_multiplier
     
     def run_detection_tests(self, noise_data, baseline_acc, inverted_multiplier):
+        # ========================================================================
+        # EXPERIMENTAL SECTION - NOT PART OF CORE TASK-IDENTITY
+        # ========================================================================
+        # The code below tests alternative threshold detection methods (v2.0, 
+        # Config 2) which include multipliers, autocorrelation, and inverted 
+        # multipliers. These are exploratory features from physical system 
+        # monitoring and are NOT part of the core Task-Identity metric.
+        #
+        # Core Task-Identity = Pearson correlation of confusion matrices (simple)
+        # This experimental code = Additional threshold tuning heuristics (complex)
+        # ========================================================================
+
         self.log("\n" + "="*70)
         self.log("DETECTION TESTS - v2.0 vs Config 2", '🔬')
         self.log("="*70)

@@ -183,25 +183,35 @@ print(f"Task-Identity: {task_id:.3f}")  # Will show behavioral change
 
 ## 📖 Interpretation Guide
 
-| Task-Identity | Interpretation | Recommended Action |
-|--------------|----------------|-------------------|
+### Threshold Guidelines
+
+**Important Note:** The thresholds below are **recommended starting points based on validation testing**, not statistically derived confidence intervals. Users should calibrate thresholds based on their specific use case, risk tolerance, and historical data.
+
+| Task-Identity Range | Interpretation | Recommended Action |
+|---------------------|----------------|-------------------|
 | **0.95 - 1.00** | Nearly identical behavior | ✅ Model stable, no action needed |
 | **0.85 - 0.95** | Minor behavioral changes | ⚠️ Monitor closely, investigate if persistent |
-| **0.70 - 0.85** | Moderate behavioral shift | ⚠️⚠️ Investigate cause, may need intervention |
-| **0.50 - 0.70** | Major behavioral change | 🚨 Alert required, likely data/model issue |
+| **0.70 - 0.85** | Moderate behavioral shift | ⚠️⚠️ Investigate cause, intervention likely needed |
+| **0.50 - 0.70** | Major behavioral change | 🚨 Alert required, data/model issue likely |
 | **0.00 - 0.50** | Catastrophic behavioral shift | 🚨🚨 Critical failure, immediate action required |
 
 ### Context-Specific Thresholds
 
-Different use cases require different thresholds:
+Different use cases require different thresholds based on business requirements:
 
-| Use Case | Threshold | Rationale |
-|----------|-----------|-----------|
-| Production monitoring | < 0.95 | Detect drift early |
-| Security validation | < 0.85 | Higher tolerance for attacks |
-| Compression validation | < 0.95 | Strict preservation requirement |
-| Transfer learning | < 0.70 | Some forgetting acceptable |
-| Training convergence | ≈ 1.00 | Stop when behavior stabilizes |
+| Use Case | Alert Threshold | Rationale |
+|----------|----------------|-----------|
+| Production monitoring | < 0.95 | Conservative - catch drift early before user impact |
+| Security validation | < 0.85 | Allow normal variation, focus on detecting attacks |
+| Compression QA | < 0.95 | Strict preservation required for deployment |
+| Transfer learning | < 0.70 | Some task forgetting may be acceptable |
+| Training convergence | ≈ 1.00 | Stop training when behavior stabilizes |
+
+**Calibration Recommendation:** 
+1. Start with suggested thresholds
+2. Monitor false positive rate in your environment
+3. Adjust based on cost of false alarms vs missed drift
+4. Document your organization's calibrated thresholds
 
 ---
 

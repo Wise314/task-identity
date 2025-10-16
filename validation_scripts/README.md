@@ -97,14 +97,15 @@ cd task-identity
 # Activate environment
 source task-identity-env/bin/activate
 
-# Run core validation tests
-python3 validation_scripts/catastrophic_forgetting_full_detection.py
-python3 validation_scripts/progressive_noise_validator.py
-python3 validation_scripts/targeted_poisoning_detection.py
-python3 validation_scripts/cross_domain_behavior_test.py
-python3 validation_scripts/class_imbalance_detection.py
-python3 validation_scripts/training_dynamics_test.py
-python3 validation_scripts/model_compression_test.py
+# Run core validation tests (use PYTHONPATH for proper imports)
+PYTHONPATH=. python3 validation_scripts/catastrophic_forgetting_full_detection.py
+PYTHONPATH=. python3 validation_scripts/progressive_noise_validator.py
+PYTHONPATH=. python3 validation_scripts/domain_shift_test.py
+PYTHONPATH=. python3 validation_scripts/targeted_poisoning_detection.py
+PYTHONPATH=. python3 validation_scripts/cross_domain_behavior_test.py
+PYTHONPATH=. python3 validation_scripts/class_imbalance_detection.py
+PYTHONPATH=. python3 validation_scripts/training_dynamics_test.py
+PYTHONPATH=. python3 validation_scripts/model_compression_test.py
 ```
 
 **Expected time:** ~30 minutes for all tests

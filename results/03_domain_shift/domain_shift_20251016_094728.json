@@ -1,0 +1,17 @@
+{
+  "test_name": "domain_shift",
+  "test_type": "cross_domain_detection",
+  "timestamp": "20251016_094728",
+  "mnist_accuracy": 0.9256666666666666,
+  "fashion_mnist_accuracy": 0.12666666666666668,
+  "task_identity": 0.04551215458466379,
+  "behavioral_divergence": 0.9544878454153363,
+  "interpretation": "Domain shift successfully detected",
+  "details": {
+    "training_domain": "MNIST (handwritten digits)",
+    "test_domain_1": "MNIST (same domain)",
+    "test_domain_2": "Fashion-MNIST (clothing items)",
+    "samples_mnist": 3000,
+    "samples_fashion": 3000
+  }
+}
