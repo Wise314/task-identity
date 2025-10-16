@@ -28,6 +28,14 @@ python3 validation_scripts/catastrophic_forgetting_full_detection.py
 python3 validation_scripts/progressive_noise_validator.py
 ```
 
+### ✅ Test 3: Domain Shift
+**Script:** `domain_shift_test.py`  
+**Results:** `results/03_domain_shift/`  
+**Purpose:** Detect cross-domain behavioral differences
+```bash
+PYTHONPATH=. python3 validation_scripts/domain_shift_test.py
+```
+
 ### ✅ Test 4: Targeted Poisoning
 **Script:** `targeted_poisoning_detection.py`  
 **Results:** `results/04_targeted_poisoning/`  
@@ -117,7 +125,7 @@ PYTHONPATH=. python3 validation_scripts/model_compression_test.py
 All test results are automatically saved to:
 - `results/01_catastrophic_forgetting/*.json`
 - `results/02_progressive_noise/*.json`
-- `results/03_domain_shift/*.json` (manual Fashion-MNIST test)
+- `results/03_domain_shift/*.json`
 - `results/04_targeted_poisoning/*.json`
 - `results/05_cross_domain/*.json`
 - `results/06_class_imbalance/*.json`
@@ -190,4 +198,4 @@ To add a new validation test:
 ---
 
 **Last Updated:** October 15, 2025  
-**Status:** 7 production tests + 3 experimental/archived
+**Status:** 8 production tests + 3 experimental/archived
