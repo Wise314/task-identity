@@ -1,0 +1,31 @@
+{
+  "test_name": "tabular_classification",
+  "test_type": "fraud_detection_extreme_imbalance",
+  "timestamp": "20251016_185259",
+  "dataset": "synthetic_fraud_detection",
+  "baseline_accuracy": 0.8363333333333334,
+  "current_accuracy": 0.9583333333333334,
+  "accuracy_change": 0.122,
+  "task_identity": 0.9812110195228616,
+  "behavioral_drift": 0.018788980477138395,
+  "interpretation": "Behavior relatively stable",
+  "recommendation": "Minor behavioral changes",
+  "details": {
+    "total_samples": 10000,
+    "train_samples": 7000,
+    "test_samples": 3000,
+    "features": 20,
+    "balanced_legit_samples": 6623,
+    "balanced_fraud_samples": 6623,
+    "imbalanced_legit_samples": 6623,
+    "imbalanced_fraud_samples": 75,
+    "imbalance_ratio": 88.30666666666667,
+    "model": "LogisticRegression",
+    "max_iter": 1000
+  },
+  "data_verification": {
+    "dataset_type": "sklearn make_classification",
+    "realistic_fraud_distribution": "95% legit, 5% fraud",
+    "no_hardcoded_results": true
+  }
+}

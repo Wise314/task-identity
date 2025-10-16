@@ -1,0 +1,31 @@
+{
+  "test_name": "tabular_classification",
+  "test_type": "fraud_detection_imbalanced_fine_tuning",
+  "timestamp": "20251016_185031",
+  "dataset": "synthetic_fraud_detection",
+  "baseline_accuracy": 0.9636666666666667,
+  "current_accuracy": 0.9533333333333334,
+  "accuracy_change": -0.010333333333333306,
+  "task_identity": 0.9998350332784031,
+  "behavioral_drift": 0.00016496672159693748,
+  "interpretation": "Behavior relatively stable",
+  "recommendation": "Minor behavioral changes",
+  "details": {
+    "total_samples": 10000,
+    "train_samples": 7000,
+    "test_samples": 3000,
+    "features": 20,
+    "balanced_legit_samples": 6623,
+    "balanced_fraud_samples": 6623,
+    "imbalanced_legit_samples": 6623,
+    "imbalanced_fraud_samples": 188,
+    "imbalance_ratio": 35.22872340425532,
+    "model": "RandomForestClassifier",
+    "n_estimators": 100
+  },
+  "data_verification": {
+    "dataset_type": "sklearn make_classification",
+    "realistic_fraud_distribution": "95% legit, 5% fraud",
+    "no_hardcoded_results": true
+  }
+}

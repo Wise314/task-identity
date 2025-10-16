@@ -1,0 +1,22 @@
+{
+  "test_name": "tabular_classification",
+  "test_type": "fraud_detection_zero_fraud_training",
+  "timestamp": "20251016_190009",
+  "dataset": "synthetic_fraud_detection",
+  "baseline_accuracy": 0.9836666666666667,
+  "current_accuracy": 0.946,
+  "accuracy_change": -0.03766666666666674,
+  "task_identity": 0.9972538019053195,
+  "behavioral_drift": 0.002746198094680463,
+  "interpretation": "Behavior relatively stable",
+  "recommendation": "Minor behavioral changes",
+  "details": {
+    "total_samples": 10000,
+    "train_samples": 7000,
+    "test_samples": 3000,
+    "features": 20,
+    "model": "MLPClassifier",
+    "hidden_layers": "(64, 32)",
+    "max_iter": 50
+  }
+}
