@@ -1,8 +1,12 @@
-<artifact identifier="updated-results-readme" type="application/vnd.ant.code" language="markdown" title="Updated results/README.md with All 11 Tests">
 # Task-Identity Validation Results
-Overview
+
+## Overview
+
 This directory contains comprehensive validation of Task-Identity across 11 diverse scenarios spanning 4 domains, demonstrating universal applicability for behavioral drift detection.
-All tests use real, published datasets - no synthetic data.
+
+**All tests use real, published datasets - no synthetic data.**
+
+---
 
 Test Portfolio
 🖼️ Computer Vision (Tests 1-8)
@@ -10,7 +14,7 @@ Datasets: MNIST (handwritten digits), Fashion-MNIST (clothing items)
 Security & Safety Tests
 TestTask-IdentityKey FindingDetails1. Catastrophic Forgetting0.000Detected complete task failureModel trained on digits 0-4, forgot after training on 5-94. Targeted Poisoning0.873 (per-class: 0.17)Pinpointed compromised classesFound poisoned classes 5 & 88. Model Compression0.384Blocked broken deployment4x compression destroyed 6 classes
 Data Quality & Distribution Tests
-TestTask-IdentityKey FindingDetails2. Progressive Noise0.780-1.000Tracked gradual degradationMonitored accuracy decline from clean to 50% noise3. Domain Shift0.049Detected cross-domain mismatchMNIST vs Fashion-MNIST behavioral difference6. Class Imbalance0.576Found bias accuracy missedDetected 42% drift while accuracy stable
+TestTask-IdentityKey FindingDetails2. Progressive Noise0.780-1.000Tracked gradual degradationMonitored accuracy decline from clean to 50% noise3. Domain Shift0.046Detected cross-domain mismatchMNIST vs Fashion-MNIST behavioral difference6. Class Imbalance0.576Found bias accuracy missedDetected 42% drift while accuracy stable
 Training & Optimization Tests
 TestTask-IdentityKey FindingDetails5. Cross-Domain Training0.000Compared training provenanceMNIST-trained vs Fashion-trained models7. Training Dynamics0.999-1.000Detected convergence pointFound when training stabilized
 
