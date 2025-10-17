@@ -20,12 +20,12 @@ Each script generates test results saved in the corresponding `results/` folder.
 ---
 
 🖼️ Computer Vision Tests (8 Tests)
-✅ Test 1: Catastrophic Forgetting
+✅ Test 1: Label Space Divergence
 Script: catastrophic_forgetting_full_detection.py
 Dataset: MNIST (handwritten digits)
 Results: results/01_catastrophic_forgetting/
-Purpose: Detect complete task failure in continual learning
-Task-Identity: 0.000 (complete failure detected)
+Purpose: Detect label space mismatch and complete behavioral collapse
+Task-Identity: 0.000 (complete behavioral divergence detected)
 bashPYTHONPATH=. python3 validation_scripts/catastrophic_forgetting_full_detection.py
 
 ✅ Test 2: Progressive Noise
@@ -265,7 +265,7 @@ To add a new validation test:
 **Quick reference for which tests validate which domains:**
 ```
 Computer Vision (Tests 1-8):
-  ├── MNIST: Tests 1, 2, 4, 6, 7, 8
+  ├── MNIST: Tests 1 (Label Space Divergence), 2, 4, 6, 7, 8
   └── Fashion-MNIST: Tests 3, 5
 
 NLP (Test 9):
