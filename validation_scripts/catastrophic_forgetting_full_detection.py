@@ -67,7 +67,7 @@ class CatastrophicForgettingFullDetection:
         # Phase 2: digits 5-9
         phase2_mask = labels >= 5
         phase2_images = images[phase2_mask]
-        phase2_labels = labels[phase2_mask]
+        phase2_labels = labels[phase2_mask]  # Keep as 5-9 to create label space mismatch
         
         self.log(f"Phase 1 (0-4): {len(phase1_images)} samples", '✓')
         self.log(f"Phase 2 (5-9): {len(phase2_images)} samples", '✓')
@@ -136,7 +136,7 @@ class CatastrophicForgettingFullDetection:
         
         # Test on Phase 1 AFTER catastrophic forgetting
         preds_after = clf_after.predict(test_images)
-        cm_after = confusion_matrix(test_labels, preds_after, labels=range(10))
+        cm_after = confusion_matrix(test_labels, preds_after, labels=range(5))
         acc_after = (preds_after == test_labels).mean()
         
         self.log(f"Phase 1 accuracy (AFTER forgetting): {acc_after:.3f}", '⚠️')
@@ -145,7 +145,7 @@ class CatastrophicForgettingFullDetection:
         # Calculate task-identity
         # Get predictions from before model for comparison
         preds_before = clf_before.predict(test_images)
-        task_identity = calculate_task_identity(test_labels, preds_before, test_labels, preds_after, labels=range(10))
+        task_identity = calculate_task_identity(test_labels, preds_before, test_labels, preds_after, labels=range(5))
         self.log(f"Task-Identity: {task_identity:.3f}", '💥')
         # Calculate embedding identity (structure similarity)
         embedding_identity = self.calculate_embedding_identity_models(clf_before, clf_after, test_images)

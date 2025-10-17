@@ -35,14 +35,15 @@ Task-Identity is a training-free metric that measures behavioral similarity betw
 
 🚨 Why Task-Identity?
 Traditional drift detection methods can miss critical failures:
-Example: Catastrophic Forgetting Detection
+**Example: Label Space Divergence Detection (Test #1)**
 
-Embedding Similarity: 0.583 (appears moderate - underestimates severity)
-Task-Identity: 0.000 (detects complete failure)
-Actual Performance: 99.3% → 0.0% accuracy (total collapse)
+- **Embedding Similarity:** 0.583 (appeared moderate - missed the failure)
+- **Task-Identity:** 0.000 (correctly detected complete behavioral collapse)
+- **Actual Performance:** 99.3% → 0.0% accuracy (total failure)
+- **Detection Gap:** 58.3 percentage points
 
 ✅ Task-Identity caught the catastrophic failure
-⚠️ Embedding similarity significantly underestimated it
+⚠️ Embedding similarity completely missed it (58.3% detection gap)
 
 ✨ Key Features
 
@@ -91,7 +92,7 @@ View all detailed results →
 
 🖼️ Computer Vision Tests (8 Tests)
 Dataset: MNIST & Fashion-MNIST (handwritten digits & clothing items)
-Test #Test NameTask-IdentityKey FindingDetails1Catastrophic Forgetting0.000Detected complete task failureREADME2Progressive Noise0.780-1.000Tracked gradual degradationREADME3Domain Shift0.046Detected cross-domain mismatchREADME4Targeted Poisoning0.873 (per-class: 0.17)Pinpointed poisoned classesREADME5Cross-Domain Training0.000Compared training provenanceREADME6Class Imbalance0.576Found bias accuracy missedREADME7Training Dynamics0.999-1.000Detected convergence pointREADME8Model Compression0.384Blocked broken deploymentREADME
+Test #Test NameTask-IdentityKey FindingDetails1Label Space Divergence0.000Detected complete behavioral collapseREADME2Progressive Noise0.780-1.000Tracked gradual degradationREADME3Domain Shift0.046Detected cross-domain mismatchREADME4Targeted Poisoning0.873 (per-class: 0.17)Pinpointed poisoned classesREADME5Cross-Domain Training0.000Compared training provenanceREADME6Class Imbalance0.576Found bias accuracy missedREADME7Training Dynamics0.999-1.000Detected convergence pointREADME8Model Compression0.384Blocked broken deploymentREADME
 
 📝 Natural Language Processing (1 Test)
 Dataset: 20 Newsgroups (text classification)

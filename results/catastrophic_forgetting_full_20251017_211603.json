@@ -1,0 +1,163 @@
+{
+  "test": "catastrophic_forgetting_full_detection",
+  "timestamp": "20251017_211603",
+  "task_identity": 0.0,
+  "autocorrelation": 0.0,
+  "alpha_results": {
+    "0.01": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.01,
+        "acc_threshold": 0.9833042127742186
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 1.02,
+        "acc_threshold": 0.9736639753940792
+      },
+      "improvement_percent": 0.0
+    },
+    "0.03": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.03,
+        "acc_threshold": 0.9642109270892824
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 1.06,
+        "acc_threshold": 0.9369219385867554
+      },
+      "improvement_percent": 0.0
+    },
+    "0.05": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.05,
+        "acc_threshold": 0.945845004668534
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 1.1,
+        "acc_threshold": 0.9028520499108734
+      },
+      "improvement_percent": 0.0
+    },
+    "0.08": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.08,
+        "acc_threshold": 0.9195715323166304
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 1.16,
+        "acc_threshold": 0.8561528059499662
+      },
+      "improvement_percent": 0.0
+    },
+    "0.1": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.1,
+        "acc_threshold": 0.9028520499108734
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 1.2,
+        "acc_threshold": 0.8276143790849674
+      },
+      "improvement_percent": 0.0
+    },
+    "0.15": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.15,
+        "acc_threshold": 0.8635976129582269
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 1.3,
+        "acc_threshold": 0.7639517345399698
+      },
+      "improvement_percent": 0.0
+    },
+    "0.2": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.2,
+        "acc_threshold": 0.8276143790849674
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 1.4,
+        "acc_threshold": 0.7093837535014006
+      },
+      "improvement_percent": 0.0
+    },
+    "0.3": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.3,
+        "acc_threshold": 0.7639517345399698
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 1.6,
+        "acc_threshold": 0.6207107843137255
+      },
+      "improvement_percent": 0.0
+    },
+    "0.5": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.5,
+        "acc_threshold": 0.6620915032679738
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 2.0,
+        "acc_threshold": 0.4965686274509804
+      },
+      "improvement_percent": 0.0
+    },
+    "0.8": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 1.8,
+        "acc_threshold": 0.5517429193899782
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 2.6,
+        "acc_threshold": 0.3819758672699849
+      },
+      "improvement_percent": 0.0
+    },
+    "1.0": {
+      "v2": {
+        "f1": 1.0,
+        "threshold": 2.0,
+        "acc_threshold": 0.4965686274509804
+      },
+      "config2": {
+        "f1": 1.0,
+        "threshold": 3.0,
+        "acc_threshold": 0.3310457516339869
+      },
+      "improvement_percent": 0.0
+    }
+  },
+  "embedding_identity": 0.5834642829226507,
+  "multiplier": 0.0,
+  "inverted_multiplier": 2.0,
+  "baseline_accuracy": 0.9931372549019608,
+  "shifted_accuracy": 0.0,
+  "class_accuracies": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}
