@@ -12,7 +12,7 @@ Test Portfolio
 🖼️ Computer Vision (Tests 1-8)
 Datasets: MNIST (handwritten digits), Fashion-MNIST (clothing items)
 Security & Safety Tests
-TestTask-IdentityKey FindingDetails1. Catastrophic Forgetting0.000Detected complete task failureModel trained on digits 0-4, forgot after training on 5-94. Targeted Poisoning0.873 (per-class: 0.17)Pinpointed compromised classesFound poisoned classes 5 & 88. Model Compression0.384Blocked broken deployment4x compression destroyed 6 classes
+TestTask-IdentityKey FindingDetails1. Label Space Divergence0.000Detected complete behavioral collapseModel trained on digits 0-4, then retrained on 5-9 (labels 5-9), creating label space mismatch4. Targeted Poisoning0.873 (per-class: 0.17)Pinpointed compromised classesFound poisoned classes 5 & 88. Model Compression0.384Blocked broken deployment4x compression destroyed 6 classes
 Data Quality & Distribution Tests
 TestTask-IdentityKey FindingDetails2. Progressive Noise0.780-1.000Tracked gradual degradationMonitored accuracy decline from clean to 50% noise3. Domain Shift0.046Detected cross-domain mismatchMNIST vs Fashion-MNIST behavioral difference6. Class Imbalance0.576Found bias accuracy missedDetected 42% drift while accuracy stable
 Training & Optimization Tests
@@ -31,7 +31,7 @@ Validation: Proves Task-Identity works on tabular/medical data. Simulates danger
 🎵 Audio / Speech Recognition (Test 11)
 Dataset: Free Spoken Digit Dataset (real audio recordings)
 TestTask-IdentityKey FindingDetails11. Speech Recognition Drift0.000Detected catastrophic forgetting on audioModel trained on digits 0-4, forgot after training on 5-9
-Validation: Proves Task-Identity works on audio data. 3,000 real spoken digit recordings from 6 speakers. Same catastrophic forgetting pattern as Test 1 (images), validating universal applicability.
+Validation: Proves Task-Identity works on audio data. 3,000 real spoken digit recordings from 6 speakers. Same label space divergence pattern as Test 1 (images), validating universal applicability.
 
 Domain Coverage Summary
 DomainTestsDatasetsCoverageComputer Vision8MNIST, Fashion-MNISTAutonomous vehicles, facial recognition, medical imagingNLP120 NewsgroupsContent moderation, sentiment analysis, chatbotsMedical AI1Wisconsin Breast CancerDiagnostic systems, patient triage, disease detectionAudio/Speech1Free Spoken Digit DatasetVoice assistants, speech recognition, audio surveillance
@@ -50,7 +50,7 @@ Task-Identity works across all major ML domains:
 2. Detects What Traditional Metrics Miss
 
 Test 6: Accuracy stable (93.6% → 93.7%) but Task-Identity showed 42% behavioral drift
-Test 1: Embedding similarity 58% but Task-Identity correctly showed 0% behavioral similarity
+Test 1: Embedding similarity 58.3% but Task-Identity correctly showed 0% behavioral similarity (58.3% detection gap)
 Test 8: Compression looked viable but Task-Identity revealed catastrophic class-specific failures
 Test 9: Accuracy appeared reasonable but Task-Identity detected single-class collapse
 
@@ -112,18 +112,18 @@ No synthetic data generation. No hardcoded results. Real ML validation.
 
 File Organization
 results/
-├── 01_catastrophic_forgetting/  # Computer Vision: Complete task failure
-├── 02_progressive_noise/        # Computer Vision: Gradual degradation
-├── 03_domain_shift/             # Computer Vision: Cross-domain mismatch
-├── 04_targeted_poisoning/       # Computer Vision: Security attack detection
-├── 05_cross_domain/             # Computer Vision: Training provenance
-├── 06_class_imbalance/          # Computer Vision: Distribution shift
-├── 07_training_dynamics/        # Computer Vision: Convergence monitoring
-├── 08_model_compression/        # Computer Vision: Deployment validation
-├── 09_text_classification/      # NLP: Text classification drift
-├── 10_tabular_classification/   # Medical AI: Diagnosis drift
-├── 11_audio_classification/     # Audio: Speech recognition drift
-└── archive/                     # Historical results and experiments
+├── 01_catastrophic_forgetting/  # Computer Vision: Label space divergence
+├── 02_p2_progressive_noise/        # Computer Vision: Gradual degradation  
+├── 03_d3_domain_shift/             # Computer Vision: Cross-domain mismatch
+├── 04_t4_targeted_poisoning/       # Computer Vision: Security attack detection
+├── 05_c5_cross_domain/             # Computer Vision: Training provenance
+├── 06_c6_class_imbalance/          # Computer Vision: Distribution shift
+├── 07_t7_training_dynamics/        # Computer Vision: Convergence monitoring
+├── 08_m8_model_compression/        # Computer Vision: Deployment validation
+├── 09_09_text_classification/      # NLP: Text classification drift
+├── 10_t0_tabular_classification/   # Medical AI: Diagnosis drift
+├── 11_audio_classification/        # Audio: Speech recognition drift   
+└── archive/                        # Historical results and experiments
 Each test folder contains:
 
 README.md - Detailed test description and results
