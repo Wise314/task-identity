@@ -1,0 +1,36 @@
+{
+  "test_name": "tabular_classification",
+  "test_type": "medical_diagnosis_single_class_training",
+  "timestamp": "20251017_090345",
+  "dataset": "wisconsin_breast_cancer",
+  "dataset_source": "sklearn.datasets.load_breast_cancer",
+  "baseline_accuracy": 0.9707602339181286,
+  "current_accuracy": 0.3742690058479532,
+  "accuracy_change": -0.5964912280701754,
+  "task_identity": 0.0,
+  "behavioral_drift": 1.0,
+  "interpretation": "Severe behavioral change detected",
+  "recommendation": "Critical drift - model behavior fundamentally altered",
+  "details": {
+    "total_samples": 569,
+    "train_samples": 398,
+    "test_samples": 171,
+    "features": 30,
+    "feature_names": [
+      "mean radius",
+      "mean texture",
+      "mean perimeter",
+      "mean area",
+      "mean smoothness"
+    ],
+    "model": "MLPClassifier",
+    "hidden_layers": "(64, 32)",
+    "max_iter": 100
+  },
+  "data_verification": {
+    "real_dataset": "Wisconsin Breast Cancer (UCI ML Repository)",
+    "published": true,
+    "no_synthetic_data": true,
+    "source": "sklearn.datasets"
+  }
+}

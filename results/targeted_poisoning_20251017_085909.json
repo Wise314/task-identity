@@ -1,0 +1,39 @@
+{
+  "test": "targeted_poisoning_detection",
+  "timestamp": "20251017_085909",
+  "target_classes": null,
+  "poison_rate": 0.6,
+  "task_identity": null,
+  "target_mappings": {
+    "5": 3,
+    "8": 3
+  },
+  "poison_stats": {
+    "5": {
+      "total": 610,
+      "poisoned": 366,
+      "target": 3
+    },
+    "8": {
+      "total": 650,
+      "poisoned": 390,
+      "target": 3
+    }
+  },
+  "accuracy_clean_model": 0.9356666666666666,
+  "accuracy_poisoned_model": 0.7963333333333333,
+  "task_identity_overall": 0.8731785571811659,
+  "behavioral_divergence": 0.12682144281883412,
+  "class_identities": {
+    "0": 0.9997201600090742,
+    "1": 0.9999148098263794,
+    "2": 0.9997394503069981,
+    "3": 0.9998061233505294,
+    "4": 0.9999420169689046,
+    "5": 0.17076761412218538,
+    "6": 0.9998873187272188,
+    "7": 0.9999660994374276,
+    "8": 0.17709541796789652,
+    "9": 0.9998730055583671
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "test": "class_imbalance_detection",
+  "timestamp": "20251017_090047",
+  "majority_class": 0,
+  "majority_ratio": 0.9,
+  "task_identity_overall": 0.575980792495674,
+  "behavioral_shift": 0.424019207504326,
+  "balanced_accuracy": 0.9356666666666666,
+  "imbalanced_accuracy": 0.9373970345963756,
+  "majority_class_acc": 0.9387096774193548,
+  "minority_avg_acc": 0.936026936026936,
+  "class_stats": {
+    "0": {
+      "balanced_acc": 0.9483870967741935,
+      "imbalanced_acc": 0.9387096774193548,
+      "imbalanced_count": 310,
+      "task_identity": 0.9998499633555504
+    },
+    "1": {
+      "balanced_acc": 0.9766763848396501,
+      "imbalanced_acc": 0.9393939393939394,
+      "imbalanced_count": 33,
+      "task_identity": 0.9992746031087735
+    },
+    "2": {
+      "balanced_acc": 0.939873417721519,
+      "imbalanced_acc": 0.8787878787878788,
+      "imbalanced_count": 33,
+      "task_identity": 0.9989451270629292
+    },
+    "3": {
+      "balanced_acc": 0.9272151898734177,
+      "imbalanced_acc": 0.9696969696969697,
+      "imbalanced_count": 33,
+      "task_identity": 0.9994861217065019
+    },
+    "4": {
+      "balanced_acc": 0.9393939393939394,
+      "imbalanced_acc": 0.9393939393939394,
+      "imbalanced_count": 33,
+      "task_identity": 0.9997373908157053
+    },
+    "5": {
+      "balanced_acc": 0.9130434782608695,
+      "imbalanced_acc": 0.9696969696969697,
+      "imbalanced_count": 33,
+      "task_identity": 0.9993947032953983
+    },
+    "6": {
+      "balanced_acc": 0.9639344262295082,
+      "imbalanced_acc": 0.9696969696969697,
+      "imbalanced_count": 33,
+      "task_identity": 0.9993982121768084
+    },
+    "7": {
+      "balanced_acc": 0.9462025316455697,
+      "imbalanced_acc": 0.9393939393939394,
+      "imbalanced_count": 33,
+      "task_identity": 0.9991186640017545
+    },
+    "8": {
+      "balanced_acc": 0.8639455782312925,
+      "imbalanced_acc": 0.9090909090909091,
+      "imbalanced_count": 33,
+      "task_identity": 0.9989822048078338
+    },
+    "9": {
+      "balanced_acc": 0.9257950530035336,
+      "imbalanced_acc": 0.9090909090909091,
+      "imbalanced_count": 33,
+      "task_identity": 0.999529043283954
+    }
+  }
+}

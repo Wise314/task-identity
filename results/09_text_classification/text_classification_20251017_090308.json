@@ -1,0 +1,33 @@
+{
+  "test_name": "text_classification",
+  "test_type": "imbalanced_fine_tuning",
+  "timestamp": "20251017_090308",
+  "dataset": "20_newsgroups",
+  "categories": [
+    "comp.graphics",
+    "rec.sport.baseball"
+  ],
+  "baseline_accuracy": 0.9427480916030534,
+  "current_accuracy": 0.5050890585241731,
+  "accuracy_change": -0.4376590330788803,
+  "task_identity": 0.03613896066342057,
+  "behavioral_drift": 0.9638610393365794,
+  "interpretation": "Severe behavioral change detected",
+  "recommendation": "Critical drift - model behavior fundamentally altered",
+  "details": {
+    "total_train_samples": 1181,
+    "total_test_samples": 786,
+    "imbalanced_class0_samples": 58,
+    "imbalanced_class1_samples": 597,
+    "imbalance_ratio": 10.293103448275861,
+    "feature_count": 5000,
+    "model": "LogisticRegression",
+    "vectorizer": "TfidfVectorizer",
+    "max_features": 5000
+  },
+  "data_verification": {
+    "real_dataset": "20 Newsgroups (sklearn)",
+    "no_synthetic_data": true,
+    "manual_verification": "Sample text shown in output"
+  }
+}

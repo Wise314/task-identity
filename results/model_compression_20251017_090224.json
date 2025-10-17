@@ -1,0 +1,66 @@
+{
+  "test": "model_compression",
+  "timestamp": "20251017_090224",
+  "compression_ratio": 4.0,
+  "original_size_kb": 437.544,
+  "compressed_size_kb": 109.386,
+  "compression_level": "moderate",
+  "task_identity": 0.3836860039108141,
+  "behavioral_drift": 0.6163139960891859,
+  "accuracy_original": 0.9356666666666666,
+  "accuracy_compressed": 0.39466666666666667,
+  "accuracy_degradation_pct": 57.81973637335233,
+  "deployment_approved": false,
+  "class_impacts": {
+    "0": {
+      "original_acc": 0.9483870967741935,
+      "compressed_acc": 0.9258064516129032,
+      "degradation": 0.022580645161290325
+    },
+    "1": {
+      "original_acc": 0.9766763848396501,
+      "compressed_acc": 0.9591836734693877,
+      "degradation": 0.017492711370262426
+    },
+    "2": {
+      "original_acc": 0.939873417721519,
+      "compressed_acc": 0.9050632911392406,
+      "degradation": 0.034810126582278444
+    },
+    "3": {
+      "original_acc": 0.9272151898734177,
+      "compressed_acc": 0.0,
+      "degradation": 0.9272151898734177
+    },
+    "4": {
+      "original_acc": 0.9393939393939394,
+      "compressed_acc": 0.003787878787878788,
+      "degradation": 0.9356060606060607
+    },
+    "5": {
+      "original_acc": 0.9130434782608695,
+      "compressed_acc": 0.0,
+      "degradation": 0.9130434782608695
+    },
+    "6": {
+      "original_acc": 0.9639344262295082,
+      "compressed_acc": 0.0,
+      "degradation": 0.9639344262295082
+    },
+    "7": {
+      "original_acc": 0.9462025316455697,
+      "compressed_acc": 0.0189873417721519,
+      "degradation": 0.9272151898734178
+    },
+    "8": {
+      "original_acc": 0.8639455782312925,
+      "compressed_acc": 0.003401360544217687,
+      "degradation": 0.8605442176870748
+    },
+    "9": {
+      "original_acc": 0.9257950530035336,
+      "compressed_acc": 0.9681978798586572,
+      "degradation": -0.04240282685512364
+    }
+  }
+}

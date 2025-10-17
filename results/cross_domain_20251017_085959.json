@@ -1,0 +1,7 @@
+{
+  "test": "cross_domain_behavior",
+  "timestamp": "20251017_085959",
+  "task_identity": 0.0,
+  "mnist_model_acc": 0.9356666666666666,
+  "fashion_model_acc_on_mnist": 0.07366666666666667
+}

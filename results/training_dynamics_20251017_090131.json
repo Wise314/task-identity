@@ -1,0 +1,15 @@
+{
+  "test": "training_dynamics",
+  "timestamp": "20251017_090131",
+  "models": {},
+  "accuracies": {
+    "undertrained": 0.9206666666666666,
+    "normal": 0.9356666666666666,
+    "extended": 0.9376666666666666
+  },
+  "task_identity_comparisons": {
+    "undertrained_vs_normal": 0.9993137657438156,
+    "undertrained_vs_extended": 0.9992804361485156,
+    "normal_vs_extended": 0.999844032044788
+  }
+}
