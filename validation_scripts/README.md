@@ -1,17 +1,23 @@
-<artifact identifier="updated-validation-scripts-readme" type="application/vnd.ant.code" language="markdown" title="Updated validation_scripts README with All 11 Tests">
 # Validation Scripts
+
 Test implementation scripts for Task-Identity validation across 4 domains
 
-Overview
+---
+
+## Overview
+
 This folder contains the implementation scripts used to validate Task-Identity across 11 comprehensive tests spanning 4 domains:
 
-🖼️ Computer Vision: 8 tests (MNIST, Fashion-MNIST)
-📝 Natural Language Processing: 1 test (20 Newsgroups)
-🏥 Medical AI: 1 test (Wisconsin Breast Cancer)
-🎵 Audio/Speech: 1 test (Free Spoken Digit Dataset)
+- 🖼️ **Computer Vision:** 8 tests (MNIST, Fashion-MNIST)
+- 📝 **Natural Language Processing:** 1 test (20 Newsgroups)
+- 🏥 **Medical AI:** 1 test (Wisconsin Breast Cancer)
+- 🎵 **Audio/Speech:** 1 test (Free Spoken Digit Dataset)
 
-Each script generates test results saved in the corresponding results/ folder.
-All tests use real, published datasets - no synthetic data.
+Each script generates test results saved in the corresponding `results/` folder.
+
+**All tests use real, published datasets - no synthetic data.**
+
+---
 
 🖼️ Computer Vision Tests (8 Tests)
 ✅ Test 1: Catastrophic Forgetting
@@ -35,7 +41,7 @@ Script: domain_shift_test.py
 Dataset: MNIST → Fashion-MNIST
 Results: results/03_domain_shift/
 Purpose: Detect cross-domain behavioral differences
-Task-Identity: 0.049 (detected domain mismatch)
+Task-Identity: 0.046 (detected domain mismatch)
 bashPYTHONPATH=. python3 validation_scripts/domain_shift_test.py
 
 ✅ Test 4: Targeted Poisoning
@@ -271,16 +277,18 @@ Medical AI (Test 10):
 Audio/Speech (Test 11):
   └── Free Spoken Digit Dataset: Test 11
 
-🎯 Validation Status
+---
 
-✅ 11 production tests
-✅ 4 domains validated
-✅ All real datasets
-✅ Zero synthetic data
-✅ Ready for patent filing
+## 🎯 Validation Status
 
+- ✅ 11 production tests
+- ✅ 4 domains validated
+- ✅ All real datasets
+- ✅ Zero synthetic data
+- ✅ Ready for patent filing
 
-Last Updated: October 16, 2024
-Status: 11/11 tests passing across 4 domains
-Coverage: 95%+ of production ML classification workloads
-</artifact>
+---
+
+**Last Updated:** October 17, 2025  
+**Status:** 11/11 tests passing across 4 domains  
+**Coverage:** 95%+ of production ML classification workloads
