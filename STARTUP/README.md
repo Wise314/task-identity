@@ -25,9 +25,21 @@ Key Validation Result:
 ⚠️ Embedding Similarity: 0.583 → Significantly underestimated severity
 📉 Actual Performance: 99.3% → 0.0% (total collapse)
 
+## ⚙️ IMPORTANT: Environment Setup
+
+Before running ANY test, you MUST set PYTHONPATH:
+```bash
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+
 
 ⚡ Quick Install & Test (5 Minutes)
-bash# 1. Clone and setup
+
+⚙️ **CRITICAL: Set PYTHONPATH first (do this once per terminal session):**
+```bash
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+```
+```bash
+# 1. Clone and setup
 git clone https://github.com/Wise314/task-identity.git
 cd task-identity
 python3 -m venv task-identity-env
@@ -36,13 +48,16 @@ source task-identity-env/bin/activate  # Windows: task-identity-env\Scripts\acti
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run a quick validation test (Computer Vision)
-PYTHONPATH=. python3 validation_scripts/catastrophic_forgetting_full_detection.py
+# 3. Set PYTHONPATH (REQUIRED)
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 
-# 4. Or try cross-domain tests
-PYTHONPATH=. python3 validation_scripts/text_classification_test.py      # NLP
-PYTHONPATH=. python3 validation_scripts/tabular_classification_test.py   # Medical AI
-PYTHONPATH=. python3 validation_scripts/audio_classification_test.py     # Audio
+# 4. Run a quick validation test (Computer Vision)
+python validation_scripts/catastrophic_forgetting_full_detection.py
+
+# 5. Or try cross-domain tests
+python validation_scripts/text_classification_test.py      # NLP
+python validation_scripts/tabular_classification_test.py   # Medical AI
+python validation_scripts/audio_classification_test.py     # Audio
 ```
 
 **Expected output (Test 1 - Catastrophic Forgetting):**
@@ -50,6 +65,7 @@ PYTHONPATH=. python3 validation_scripts/audio_classification_test.py     # Audio
 ✅ Task-Identity: 0.000 (detected catastrophic forgetting)
 ⚠️ Embedding Identity: 0.583 (underestimated severity)
 📉 Accuracy: 99.3% → 0.0%
+```
 
 💻 Basic Usage (3 Lines of Code)
 pythonfrom task_identity import calculate_task_identity
