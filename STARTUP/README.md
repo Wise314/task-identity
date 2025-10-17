@@ -1,6 +1,8 @@
-<artifact identifier="updated-startup-readme" type="application/vnd.ant.code" language="markdown" title="Updated STARTUP/README.md with All 11 Tests">
 # 🚀 STARTUP: Getting Started with Task-Identity
+
 Quick start guide for new users and AI assistants
+
+---
 
 📋 What is Task-Identity?
 Task-Identity is a training-free metric that detects behavioral drift in AI classification models by comparing confusion matrices across time periods using Pearson correlation.
@@ -83,7 +85,7 @@ else:
 
 #### Data Quality & Distribution
 4. **[Progressive Noise](../results/02_progressive_noise/)** - Task-Identity: 0.780-1.000
-5. **[Domain Shift](../results/03_domain_shift/)** - Task-Identity: 0.049
+5. **[Domain Shift](../results/03_domain_shift/)** - Task-Identity: 0.046
 6. **[Class Imbalance](../results/06_class_imbalance/)** - Task-Identity: 0.576
 
 #### Training & Optimization
@@ -450,7 +452,7 @@ Validated: 11 comprehensive tests across 4 domains (vision, NLP, medical, audio)
 Coverage: 95%+ of production ML classification workloads
 Status: Production-ready, validation complete
 
-Last Updated: October 16, 2024
+Last Updated: October 17, 2025
 Version: 3.0 (Complete cross-domain validation)
 Status: ✅ Ready for production evaluation across all ML domains
 Welcome to Task-Identity! 🚀
