@@ -287,7 +287,7 @@ class ModelCompressionTest:
         
         # Save results
         os.makedirs('results', exist_ok=True)
-        filename = f"results/model_compression_{self.results['timestamp']}.json"
+        filename = f"results/08_model_compression/model_compression_{self.results['timestamp']}.json"
         with open(filename, 'w') as f:
             json.dump(self.results, f, indent=2)
         
