@@ -133,7 +133,7 @@ class CrossDomainBehaviorTest:
         self.results['fashion_model_acc_on_mnist'] = float(acc_fashion_on_mnist)
         
         os.makedirs('results', exist_ok=True)
-        filename = f"results/cross_domain_{self.results['timestamp']}.json"
+        filename = f"results/05_cross_domain/cross_domain_{self.results['timestamp']}.json"
         with open(filename, 'w') as f:
             json.dump(self.results, f, indent=2)
         
