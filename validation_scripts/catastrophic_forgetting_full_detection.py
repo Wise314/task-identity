@@ -95,7 +95,7 @@ class CatastrophicForgettingFullDetection:
         
         # Get confusion matrix BEFORE fine-tuning
         preds_before = clf.predict(test_images)
-        cm_before = confusion_matrix(test_labels, preds_before, labels=range(10))
+        cm_before = confusion_matrix(test_labels, preds_before, labels=range(5))
         acc_before = (preds_before == test_labels).mean()
         
         self.log(f"Phase 1 accuracy (BEFORE fine-tune): {acc_before:.3f}", '✓')
