@@ -1,0 +1,30 @@
+{
+  "test_name": "audio_classification",
+  "test_type": "speech_recognition_catastrophic_forgetting",
+  "timestamp": "20251018_205501",
+  "dataset": "free_spoken_digit_dataset",
+  "dataset_source": "GitHub (Jakobovski/free-spoken-digit-dataset)",
+  "baseline_accuracy": 0.9377777777777778,
+  "current_accuracy": 0.0,
+  "accuracy_change": -0.9377777777777778,
+  "task_identity": 0.0,
+  "behavioral_drift": 1.0,
+  "interpretation": "Severe behavioral change detected",
+  "recommendation": "Critical drift - model behavior fundamentally altered",
+  "details": {
+    "total_audio_files": 3000,
+    "train_samples": 2100,
+    "test_samples": 900,
+    "digits": "0-9",
+    "speakers": 6,
+    "feature_type": "MFCC",
+    "feature_dim": 13,
+    "model": "MLPClassifier"
+  },
+  "data_verification": {
+    "real_dataset": "Free Spoken Digit Dataset",
+    "published": true,
+    "no_synthetic_data": true,
+    "source": "GitHub open dataset"
+  }
+}
