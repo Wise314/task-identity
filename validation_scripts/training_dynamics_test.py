@@ -227,7 +227,7 @@ class TrainingDynamicsTest:
         
         # Save results
         os.makedirs('results', exist_ok=True)
-        filename = f"results/training_dynamics_{self.results['timestamp']}.json"
+        filename = f"results/07_training_dynamics/training_dynamics_{self.results['timestamp']}.json"
         with open(filename, 'w') as f:
             json.dump(self.results, f, indent=2)
         
