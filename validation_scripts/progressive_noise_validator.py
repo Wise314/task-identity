@@ -302,7 +302,7 @@ class ProgressiveNoiseValidator:
         
         # Save results
         os.makedirs('results', exist_ok=True)
-        filename = f"results/progressive_noise_{self.results['timestamp']}.json"
+        filename = f"results/02_progressive_noise/progressive_noise_{self.results['timestamp']}.json"
         with open(filename, 'w') as f:
             json.dump(self.results, f, indent=2)
         
