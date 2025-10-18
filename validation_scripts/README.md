@@ -24,7 +24,7 @@ Each script generates test results saved in the corresponding `results/` folder.
 Script: catastrophic_forgetting_full_detection.py
 Dataset: MNIST (handwritten digits)
 Results: results/01_catastrophic_forgetting/
-Purpose: Detect label space mismatch and complete behavioral collapse
+Purpose: Detect label space mismatch causing complete behavioral collapse (58.3% detection gap vs embedding similarity)
 Task-Identity: 0.000 (complete behavioral divergence detected)
 bashPYTHONPATH=. python3 validation_scripts/catastrophic_forgetting_full_detection.py
 
