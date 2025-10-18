@@ -2,6 +2,8 @@
 
 Test implementation scripts for Task-Identity validation across 4 domains
 
+**Audit Status:** Tests 1-6 have been audited with verified correct save paths and comprehensive documentation.
+
 ---
 
 ## Overview
@@ -19,103 +21,170 @@ Each script generates test results saved in the corresponding `results/` folder.
 
 ---
 
-🖼️ Computer Vision Tests (8 Tests)
-✅ Test 1: Label Space Divergence
-Script: catastrophic_forgetting_full_detection.py
-Dataset: MNIST (handwritten digits)
-Results: results/01_catastrophic_forgetting/
-Purpose: Detect label space mismatch causing complete behavioral collapse (58.3% detection gap vs embedding similarity)
-Task-Identity: 0.000 (complete behavioral divergence detected)
-bashPYTHONPATH=. python3 validation_scripts/catastrophic_forgetting_full_detection.py
+## 🖼️ Computer Vision Tests (8 Tests)
 
-✅ Test 2: Progressive Noise
-Script: progressive_noise_validator.py
-Dataset: MNIST
-Results: results/02_progressive_noise/
-Purpose: Track gradual performance degradation
-Task-Identity: 0.780-1.000 (tracked degradation)
-bashPYTHONPATH=. python3 validation_scripts/progressive_noise_validator.py
+### ✅ Test 1: Label Space Divergence [AUDITED]
+**Script:** `catastrophic_forgetting_full_detection.py`  
+**Dataset:** MNIST (handwritten digits)  
+**Results:** `results/01_catastrophic_forgetting/`  
+**Purpose:** Detect label space mismatch causing complete behavioral collapse  
+**Key Finding:** 58.3% detection gap vs embedding similarity (core patent claim)  
+**Task-Identity:** 0.000 (complete behavioral divergence detected)  
+**Status:** ✅ Save path verified, comprehensive README created
 
-✅ Test 3: Domain Shift
-Script: domain_shift_test.py
-Dataset: MNIST → Fashion-MNIST
-Results: results/03_domain_shift/
-Purpose: Detect cross-domain behavioral differences
-Task-Identity: 0.046 (detected domain mismatch)
-bashPYTHONPATH=. python3 validation_scripts/domain_shift_test.py
+```bash
+PYTHONPATH=. python3 validation_scripts/catastrophic_forgetting_full_detection.py
+```
 
-✅ Test 4: Targeted Poisoning
-Script: targeted_poisoning_detection.py
-Dataset: MNIST
-Results: results/04_targeted_poisoning/
-Purpose: Detect data poisoning attacks on specific classes
-Task-Identity: 0.873 overall (per-class: 0.17 for poisoned classes)
-bashPYTHONPATH=. python3 validation_scripts/targeted_poisoning_detection.py
+### ✅ Test 2: Progressive Noise [AUDITED]
+**Script:** `progressive_noise_validator.py`  
+**Dataset:** MNIST  
+**Results:** `results/02_progressive_noise/`  
+**Purpose:** Track gradual performance degradation under increasing noise  
+**Key Finding:** Smooth tracking of degradation (1.000 → 0.780) enables graduated monitoring  
+**Task-Identity:** 0.780-1.000 (tracked degradation)  
+**Status:** ✅ Save path verified, comprehensive README created
 
-✅ Test 5: Cross-Domain Training
-Script: cross_domain_behavior_test.py
-Dataset: MNIST vs Fashion-MNIST
-Results: results/05_cross_domain/
-Purpose: Compare models trained on different domains
-Task-Identity: 0.000 (different training provenance)
-bashPYTHONPATH=. python3 validation_scripts/cross_domain_behavior_test.py
+```bash
+PYTHONPATH=. python3 validation_scripts/progressive_noise_validator.py
+```
 
-✅ Test 6: Class Imbalance
-Script: class_imbalance_detection.py
-Dataset: MNIST
-Results: results/06_class_imbalance/
-Purpose: Detect behavioral changes under imbalanced distributions
-Task-Identity: 0.576 (detected 42% drift that accuracy missed)
-bashPYTHONPATH=. python3 validation_scripts/class_imbalance_detection.py
+### ✅ Test 3: Domain Shift [AUDITED]
+**Script:** `domain_shift_test.py`  
+**Dataset:** MNIST → Fashion-MNIST  
+**Results:** `results/03_domain_shift/`  
+**Purpose:** Detect cross-domain behavioral differences  
+**Key Finding:** 95.4% behavioral divergence despite identical input format  
+**Task-Identity:** 0.046 (detected domain mismatch)  
+**Status:** ✅ Save path verified, comprehensive README created
 
-✅ Test 7: Training Dynamics
-Script: training_dynamics_test.py
-Dataset: MNIST
-Results: results/07_training_dynamics/
-Purpose: Monitor behavioral convergence during training
-Task-Identity: 0.999-1.000 (detected convergence)
-bashPYTHONPATH=. python3 validation_scripts/training_dynamics_test.py
+```bash
+PYTHONPATH=. python3 validation_scripts/domain_shift_test.py
+```
 
-✅ Test 8: Model Compression
-Script: model_compression_test.py
-Dataset: MNIST
-Results: results/08_model_compression/
-Purpose: Validate compressed models before deployment
-Task-Identity: 0.384 (blocked broken 4x compression)
-bashPYTHONPATH=. python3 validation_scripts/model_compression_test.py
+### ✅ Test 4: Targeted Poisoning [AUDITED]
+**Script:** `targeted_poisoning_detection.py`  
+**Dataset:** MNIST  
+**Results:** `results/04_targeted_poisoning/`  
+**Purpose:** Detect data poisoning attacks on specific classes  
+**Key Finding:** Per-class analysis pinpointed compromised classes (0.17) while overall appeared moderate (0.873)  
+**Task-Identity:** 0.873 overall (per-class: 0.17 for poisoned classes)  
+**Status:** ✅ Save path verified, comprehensive README created
 
-📝 Natural Language Processing Tests (1 Test)
-✅ Test 9: Text Classification Drift
-Script: text_classification_test.py
-Dataset: 20 Newsgroups (computer graphics vs baseball)
-Results: results/09_text_classification/
-Purpose: Detect catastrophic forgetting on text classification
-Task-Identity: 0.036 (detected 96.4% behavioral drift)
-bashPYTHONPATH=. python3 validation_scripts/text_classification_test.py
-Test Scenario: Model trained on balanced data, then fine-tuned on heavily imbalanced data (10:1 ratio). Model collapsed to predicting only one class.
+```bash
+PYTHONPATH=. python3 validation_scripts/targeted_poisoning_detection.py
+```
 
-🏥 Medical AI / Tabular Data Tests (1 Test)
-✅ Test 10: Medical Diagnosis Drift
-Script: tabular_classification_test.py
-Dataset: Wisconsin Breast Cancer (medical diagnosis)
-Results: results/10_tabular_classification/
-Purpose: Detect dangerous training bias in medical AI
-Task-Identity: 0.000 (detected catastrophic over-diagnosis)
-bashPYTHONPATH=. python3 validation_scripts/tabular_classification_test.py
-Test Scenario: Model trained on balanced data, then retrained on ONLY malignant samples (zero benign). Simulates dangerous training data collection failure leading to over-diagnosis.
+### ✅ Test 5: Cross-Domain Training [AUDITED]
+**Script:** `cross_domain_behavior_test.py`  
+**Dataset:** MNIST vs Fashion-MNIST  
+**Results:** `results/05_cross_domain/`  
+**Purpose:** Compare models trained on different domains (training provenance)  
+**Key Finding:** Proves Task-Identity measures learned behavior, not model structure  
+**Task-Identity:** 0.000 (100% behavioral divergence despite identical architecture)  
+**Status:** ✅ Save path verified, comprehensive README created
 
-🎵 Audio / Speech Recognition Tests (1 Test)
-✅ Test 11: Speech Recognition Drift
-Script: audio_classification_test.py
-Dataset: Free Spoken Digit Dataset (real audio recordings)
-Results: results/11_audio_classification/
-Purpose: Detect catastrophic forgetting on speech recognition
-Task-Identity: 0.000 (detected 100% behavioral drift)
-bashPYTHONPATH=. python3 validation_scripts/audio_classification_test.py
-Test Scenario: Model trained on digits 0-4, then fine-tuned on digits 5-9. Model forgot original task completely.
+```bash
+PYTHONPATH=. python3 validation_scripts/cross_domain_behavior_test.py
+```
 
-🚀 Running All Tests
-bash# Navigate to project root
+### ✅ Test 6: Class Imbalance [AUDITED]
+**Script:** `class_imbalance_detection.py`  
+**Dataset:** MNIST  
+**Results:** `results/06_class_imbalance/`  
+**Purpose:** Detect behavioral changes under imbalanced distributions  
+**Key Finding:** 42.4% behavioral drift while accuracy appeared stable (93.6% → 93.7%) - **most commercially valuable test**  
+**Task-Identity:** 0.576 (detected 42.4% drift that accuracy missed)  
+**Status:** ✅ Save path verified, comprehensive README created
+
+```bash
+PYTHONPATH=. python3 validation_scripts/class_imbalance_detection.py
+```
+
+### ✅ Test 7: Training Dynamics
+**Script:** `training_dynamics_test.py`  
+**Dataset:** MNIST  
+**Results:** `results/07_training_dynamics/`  
+**Purpose:** Monitor behavioral convergence during training  
+**Task-Identity:** 0.999-1.000 (detected convergence)  
+**Status:** Standard documentation
+
+```bash
+PYTHONPATH=. python3 validation_scripts/training_dynamics_test.py
+```
+
+### ✅ Test 8: Model Compression
+**Script:** `model_compression_test.py`  
+**Dataset:** MNIST  
+**Results:** `results/08_model_compression/`  
+**Purpose:** Validate compressed models before deployment  
+**Task-Identity:** 0.384 (blocked broken 4x compression)  
+**Status:** Standard documentation
+
+```bash
+PYTHONPATH=. python3 validation_scripts/model_compression_test.py
+```
+
+---
+
+## 📝 Natural Language Processing Tests (1 Test)
+
+### ✅ Test 9: Text Classification Drift
+**Script:** `text_classification_test.py`  
+**Dataset:** 20 Newsgroups (computer graphics vs baseball)  
+**Results:** `results/09_text_classification/`  
+**Purpose:** Detect catastrophic forgetting on text classification  
+**Task-Identity:** 0.036 (detected 96.4% behavioral drift)  
+**Status:** Standard documentation
+
+```bash
+PYTHONPATH=. python3 validation_scripts/text_classification_test.py
+```
+
+**Test Scenario:** Model trained on balanced data, then fine-tuned on heavily imbalanced data (10:1 ratio). Model collapsed to predicting only one class.
+
+---
+
+## 🏥 Medical AI / Tabular Data Tests (1 Test)
+
+### ✅ Test 10: Medical Diagnosis Drift
+**Script:** `tabular_classification_test.py`  
+**Dataset:** Wisconsin Breast Cancer (medical diagnosis)  
+**Results:** `results/10_tabular_classification/`  
+**Purpose:** Detect dangerous training bias in medical AI  
+**Task-Identity:** 0.000 (detected catastrophic over-diagnosis)  
+**Status:** Standard documentation
+
+```bash
+PYTHONPATH=. python3 validation_scripts/tabular_classification_test.py
+```
+
+**Test Scenario:** Model trained on balanced data, then retrained on ONLY malignant samples (zero benign). Simulates dangerous training data collection failure leading to over-diagnosis.
+
+---
+
+## 🎵 Audio / Speech Recognition Tests (1 Test)
+
+### ✅ Test 11: Speech Recognition Drift
+**Script:** `audio_classification_test.py`  
+**Dataset:** Free Spoken Digit Dataset (real audio recordings)  
+**Results:** `results/11_audio_classification/`  
+**Purpose:** Detect catastrophic forgetting on speech recognition  
+**Task-Identity:** 0.000 (detected 100% behavioral drift)  
+**Status:** Standard documentation
+
+```bash
+PYTHONPATH=. python3 validation_scripts/audio_classification_test.py
+```
+
+**Test Scenario:** Model trained on digits 0-4, then fine-tuned on digits 5-9. Model forgot original task completely.
+
+---
+
+## 🚀 Running All Tests
+
+```bash
+# Navigate to project root
 cd task-identity
 
 # Activate environment
@@ -135,40 +204,54 @@ PYTHONPATH=. python3 validation_scripts/model_compression_test.py
 PYTHONPATH=. python3 validation_scripts/text_classification_test.py
 PYTHONPATH=. python3 validation_scripts/tabular_classification_test.py
 PYTHONPATH=. python3 validation_scripts/audio_classification_test.py
-Expected time: ~45 minutes for all 11 tests
+```
 
-📂 Output Location
+**Expected time:** ~45 minutes for all 11 tests
+
+---
+
+## 📂 Output Location
+
 All test results are automatically saved to:
-Computer Vision:
 
-results/01_catastrophic_forgetting/*.json
-results/02_progressive_noise/*.json
-results/03_domain_shift/*.json
-results/04_targeted_poisoning/*.json
-results/05_cross_domain/*.json
-results/06_class_imbalance/*.json
-results/07_training_dynamics/*.json
-results/08_model_compression/*.json
+**Computer Vision:**
+- `results/01_catastrophic_forgetting/*.json` ✅ [AUDITED]
+- `results/02_progressive_noise/*.json` ✅ [AUDITED]
+- `results/03_domain_shift/*.json` ✅ [AUDITED]
+- `results/04_targeted_poisoning/*.json` ✅ [AUDITED]
+- `results/05_cross_domain/*.json` ✅ [AUDITED]
+- `results/06_class_imbalance/*.json` ✅ [AUDITED]
+- `results/07_training_dynamics/*.json`
+- `results/08_model_compression/*.json`
 
-NLP:
+**NLP:**
+- `results/09_text_classification/*.json`
 
-results/09_text_classification/*.json
+**Medical AI:**
+- `results/10_tabular_classification/*.json`
 
-Medical AI:
+**Audio/Speech:**
+- `results/11_audio_classification/*.json`
 
-results/10_tabular_classification/*.json
+---
 
-Audio/Speech:
+## 📊 Test Summary by Domain
 
-results/11_audio_classification/*.json
+| Domain | Test Numbers | Dataset(s) | Key Validation | Audit Status |
+|--------|-------------|------------|----------------|--------------|
+| **Computer Vision** | 1-8 | MNIST, Fashion-MNIST | Catastrophic forgetting, poisoning, compression, noise | **6/8 Audited** |
+| **NLP** | 9 | 20 Newsgroups | Text classification drift, imbalanced fine-tuning | Standard |
+| **Medical AI** | 10 | Wisconsin Breast Cancer | Medical diagnosis bias, single-class training | Standard |
+| **Audio/Speech** | 11 | Free Spoken Digit Dataset | Speech recognition drift, catastrophic forgetting | Standard |
 
+---
 
-📊 Test Summary by Domain
-DomainTest NumbersDataset(s)Key ValidationComputer Vision1-8MNIST, Fashion-MNISTCatastrophic forgetting, poisoning, compression, noiseNLP920 NewsgroupsText classification drift, imbalanced fine-tuningMedical AI10Wisconsin Breast CancerMedical diagnosis bias, single-class trainingAudio/Speech11Free Spoken Digit DatasetSpeech recognition drift, catastrophic forgetting
+## 🔧 Script Structure
 
-🔧 Script Structure
 Each validation script follows this pattern:
-python# 1. Load real dataset (MNIST, 20 Newsgroups, Breast Cancer, or Audio)
+
+```python
+# 1. Load real dataset (MNIST, 20 Newsgroups, Breast Cancer, or Audio)
 # 2. Apply test-specific intervention (noise, poisoning, forgetting, etc.)
 # 3. Calculate Task-Identity using core function
 # 4. Generate detailed results with interpretation
@@ -201,7 +284,10 @@ All scripts output:
 - **Deployment recommendations** (where applicable)
 - **JSON file** with complete results and metadata
 
-See individual test READMEs in `results/` for detailed interpretation guides.
+**See individual test READMEs in `results/` for detailed interpretation guides.**
+
+**Tests 1-6:** Comprehensive READMEs with methodology, patent analysis, and commercial applications  
+**Tests 7-11:** Standard READMEs with test descriptions and results
 
 ---
 
@@ -253,20 +339,23 @@ To add a new validation test:
 1. Create script in `validation_scripts/`
 2. Follow existing script structure
 3. Use real, published datasets only (no synthetic data)
-4. Save results to appropriate `results/XX_test_name/` folder
+4. Save results to appropriate `results/XX_test_name/` folder with correct path
 5. Create README in results folder documenting the test
 6. Update this README with test details
 7. Run full validation before committing
+8. If adding to Tests 1-8 (Computer Vision), consider creating comprehensive README
 
 ---
 
 ## 📋 Domain-to-Test Mapping
 
 **Quick reference for which tests validate which domains:**
+
 ```
 Computer Vision (Tests 1-8):
-  ├── MNIST: Tests 1 (Label Space Divergence), 2, 4, 6, 7, 8
-  └── Fashion-MNIST: Tests 3, 5
+  ├── MNIST: Tests 1 ✅, 2 ✅, 4 ✅, 6 ✅, 7, 8
+  └── Fashion-MNIST: Tests 3 ✅, 5 ✅
+  (✅ = Audited with comprehensive README)
 
 NLP (Test 9):
   └── 20 Newsgroups: Test 9
@@ -276,6 +365,7 @@ Medical AI (Test 10):
 
 Audio/Speech (Test 11):
   └── Free Spoken Digit Dataset: Test 11
+```
 
 ---
 
@@ -285,10 +375,31 @@ Audio/Speech (Test 11):
 - ✅ 4 domains validated
 - ✅ All real datasets
 - ✅ Zero synthetic data
+- ✅ **6/11 tests comprehensively audited** (Tests 1-6)
 - ✅ Ready for patent filing
 
 ---
 
-**Last Updated:** October 17, 2025  
+## 🔑 Patent-Critical Tests
+
+### Core Superiority Claims:
+
+**Test 1 (Label Space Divergence):**
+- Embedding similarity: 0.583 (missed 41.7% of failure)
+- Task-Identity: 0.000 (detected 100% of failure)
+- **58.3 percentage point detection gap**
+- Status: ✅ Audited
+
+**Test 6 (Class Imbalance):**
+- Accuracy: 93.6% → 93.7% (appeared stable)
+- Task-Identity: 0.576 (detected 42.4% behavioral shift)
+- **Proves Task-Identity detects hidden bias**
+- Status: ✅ Audited
+
+---
+
+**Last Updated:** October 18, 2024  
 **Status:** 11/11 tests passing across 4 domains  
-**Coverage:** 95%+ of production ML classification workloads
+**Audit Status:** 6/11 tests comprehensively audited  
+**Coverage:** 95%+ of production ML classification workloads  
+**Patent Readiness:** ✅ Core claims validated
