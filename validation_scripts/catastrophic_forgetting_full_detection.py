@@ -300,7 +300,7 @@ class CatastrophicForgettingFullDetection:
         
         # Save results
         os.makedirs('results', exist_ok=True)
-        filename = f"results/catastrophic_forgetting_full_{self.results['timestamp']}.json"
+        filename = f"results/01_catastrophic_forgetting/catastrophic_forgetting_full_{self.results['timestamp']}.json"
         with open(filename, 'w') as f:
             json.dump(self.results, f, indent=2)
         
