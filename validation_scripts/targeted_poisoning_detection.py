@@ -288,7 +288,7 @@ class TargetedPoisoningDetection:
         
         # Save results
         os.makedirs('results', exist_ok=True)
-        filename = f"results/targeted_poisoning_{self.results['timestamp']}.json"
+        filename = f"results/04_targeted_poisoning/targeted_poisoning_{self.results['timestamp']}.json"
         with open(filename, 'w') as f:
             json.dump(self.results, f, indent=2)
         
