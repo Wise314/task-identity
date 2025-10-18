@@ -50,7 +50,7 @@ Task-Identity works across all major ML domains:
 2. Detects What Traditional Metrics Miss
 
 Test 6: Accuracy stable (93.6% → 93.7%) but Task-Identity showed 42% behavioral drift
-Test 1: Embedding similarity 58.3% but Task-Identity correctly showed 0% behavioral similarity (58.3% detection gap)
+Test 1: Embedding similarity 0.583 (58.3%) but Task-Identity correctly showed 0.000 (0% behavioral similarity) - 58.3 percentage point detection gap proves Task-Identity's superiority over structural metrics
 Test 8: Compression looked viable but Task-Identity revealed catastrophic class-specific failures
 Test 9: Accuracy appeared reasonable but Task-Identity detected single-class collapse
 
