@@ -8,6 +8,50 @@
 
 ---
 
+---
+
+## 🚀 Running the Tests
+
+To reproduce these outputs, run the following commands in order:
+```bash
+# Test 1: Label Space Divergence
+python validation_scripts/catastrophic_forgetting_full_detection.py
+
+# Test 2: Progressive Noise
+python validation_scripts/progressive_noise_validator.py
+
+# Test 3: Domain Shift
+python validation_scripts/domain_shift_test.py
+
+# Test 4: Targeted Poisoning
+python validation_scripts/targeted_poisoning_detection.py
+
+# Test 5: Cross-Domain Training
+python validation_scripts/cross_domain_behavior_test.py
+
+# Test 6: Class Imbalance
+python validation_scripts/class_imbalance_detection.py
+
+# Test 7: Training Dynamics
+python validation_scripts/training_dynamics_test.py
+
+# Test 8: Model Compression
+python validation_scripts/model_compression_test.py
+
+# Test 9: Text Classification (NLP)
+python validation_scripts/text_classification_test.py
+
+# Test 10: Medical Diagnosis (Tabular)
+python validation_scripts/tabular_classification_test.py
+
+# Test 11: Speech Recognition (Audio)
+python validation_scripts/audio_classification_test.py
+```
+
+**Expected runtime:** ~30-45 minutes for all 11 tests
+
+---
+
 ======================================================================
 💥 CATASTROPHIC FORGETTING - FULL DETECTION TEST
 Task-identity should be ~0.0, Config 2 should show rescue
