@@ -1,3 +1,4 @@
+# Delete line 9 or 11 (one of the "---")
 # Task-Identity Test Outputs - Verification Reference
 
 **Purpose:** This document contains the actual terminal outputs from all 11 Task-Identity validation tests. These are the real, verified results used for cross-checking test consistency across different runs and AI chat sessions.
@@ -6,7 +7,6 @@
 **Status:** All 11 tests executed and verified  
 **Use Case:** Reference these outputs when validating new test runs or verifying results in new conversations
 
----
 
 ---
 
