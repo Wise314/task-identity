@@ -290,7 +290,7 @@ class ClassImbalanceDetection:
         
         # Save results
         os.makedirs('results', exist_ok=True)
-        filename = f"results/class_imbalance_{self.results['timestamp']}.json"
+        filename = f"results/06_class_imbalance/class_imbalance_{self.results['timestamp']}.json"
         with open(filename, 'w') as f:
             json.dump(self.results, f, indent=2)
         
