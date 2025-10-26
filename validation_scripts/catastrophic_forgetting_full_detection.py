@@ -22,8 +22,6 @@ class CatastrophicForgettingFullDetection:
             'test': 'catastrophic_forgetting_full_detection',
             'timestamp': datetime.now().strftime('%Y%m%d_%H%M%S'),
             'task_identity': None,
-            'autocorrelation': None,
-            'alpha_results': {}
         }
     
     def log(self, msg, icon='📊'):
@@ -170,96 +168,18 @@ class CatastrophicForgettingFullDetection:
         else:
             autocorr = 0.0
         
-        # Calculate multipliers
-        multiplier = math.sqrt(max(0.0, task_identity)) * max(0.0, abs(autocorr))
-        inverted_multiplier = 2 - multiplier
-        
-        self.log(f"Autocorrelation: {autocorr:.3f}", '🧮')
-        self.log(f"Multiplier (√I × ρ): {multiplier:.3f}", '🧮')
-        self.log(f"Inverted multiplier: {inverted_multiplier:.3f}", '🚀')
-        
         self.results['task_identity'] = float(task_identity)
         self.results['embedding_identity'] = float(embedding_identity)
-        self.results['autocorrelation'] = float(autocorr)
-        self.results['multiplier'] = float(multiplier)
-        self.results['inverted_multiplier'] = float(inverted_multiplier)
         self.results['baseline_accuracy'] = float(acc_before)
         self.results['shifted_accuracy'] = float(acc_after)
         self.results['class_accuracies'] = [float(a) for a in class_accs]
         
-        return task_identity, autocorr, inverted_multiplier, class_accs, acc_before
-    
-    def run_detection_tests(self, baseline_acc, class_accs, inverted_multiplier):
-        self.log("\n" + "="*70)
-        self.log("DETECTION TESTS - v2.0 vs Config 2", '🔬')
-        self.log("="*70)
-        
-        # Ground truth: ALL 5 classes are degraded (accuracy dropped significantly)
-        ground_truth = np.ones(len(class_accs))
-        
-        avg_acc = np.mean(class_accs)
-        degradation_rate = ((baseline_acc - avg_acc) / baseline_acc) * 100
-        
-        self.log(f"Degradation rate: {degradation_rate:.1f}%")
-        self.log(f"Ground truth: {int(ground_truth.sum())}/{len(ground_truth)} classes degraded\n")
-        
-        alphas = [0.01, 0.03, 0.05, 0.08, 0.1, 0.15, 0.2, 0.3, 0.5, 0.8, 1.0]
-        
-        print(f"{'Alpha':<8} {'v2.0 F1':<12} {'Config 2 F1':<14} {'Δ%':<12} {'Status':<12}")
-        print("-"*72)
-        
-        improvements = []
-        
-        for alpha in alphas:
-            # v2.0: Standard adaptive threshold
-            v2_threshold = 1 + alpha * (degradation_rate / 100)
-            v2_acc_threshold = baseline_acc / v2_threshold
-            
-            # Config 2: With inverted multiplier
-            c2_threshold = 1 + alpha * (degradation_rate / 100) * inverted_multiplier
-            c2_acc_threshold = baseline_acc / c2_threshold
-            
-            # Detect based on per-class accuracy
-            v2_detections = np.array([1 if acc < v2_acc_threshold else 0 for acc in class_accs])
-            c2_detections = np.array([1 if acc < c2_acc_threshold else 0 for acc in class_accs])
-            
-            # Calculate F1
-            v2_prec, v2_rec, v2_f1, _ = precision_recall_fscore_support(
-                ground_truth, v2_detections, average='binary', zero_division=0
-            )
-            
-            c2_prec, c2_rec, c2_f1, _ = precision_recall_fscore_support(
-                ground_truth, c2_detections, average='binary', zero_division=0
-            )
-            
-            improvement = ((c2_f1 - v2_f1) / v2_f1 * 100) if v2_f1 > 0 else 0
-            improvements.append(improvement)
-            
-            status = "🚀 RESCUE!" if improvement > 10 else ("✓ Better" if improvement > 0 else ("≈ Same" if abs(improvement) < 1 else "⚠️ Worse"))
-            
-            print(f"{alpha:<8.2f} {v2_f1:<12.4f} {c2_f1:<14.4f} {improvement:>+10.1f}% {status:<12}")
-            
-            self.results['alpha_results'][str(alpha)] = {
-                'v2': {
-                    'f1': float(v2_f1),
-                    'threshold': float(v2_threshold),
-                    'acc_threshold': float(v2_acc_threshold),
-                },
-                'config2': {
-                    'f1': float(c2_f1),
-                    'threshold': float(c2_threshold),
-                    'acc_threshold': float(c2_acc_threshold),
-                },
-                'improvement_percent': float(improvement)
-            }
-        
-        avg_improvement = np.mean(improvements)
-        return avg_improvement
+        return task_identity, class_accs, acc_before
     
     def run(self):
         print("\n" + "="*70)
         print("💥 CATASTROPHIC FORGETTING - FULL DETECTION TEST")
-        print("Task-identity should be ~0.0, Config 2 should show rescue")
+        print("Task-identity should be ~0.0 for catastrophic forgetting")
         print("="*70 + "\n")
         
         # Load data
@@ -274,12 +194,9 @@ class CatastrophicForgettingFullDetection:
         clf_forgotten = self.catastrophic_fine_tune(clf, phase2_images, phase2_labels, init_w, init_b)
         
         # Test forgetting and calculate task-identity
-        task_id, autocorr, inv_mult, class_accs, baseline_acc = self.test_forgetting(
+        task_id, class_accs, baseline_acc = self.test_forgetting(
             clf, clf_forgotten, test_images, test_labels, cm_before, acc_before
         )
-        
-        # Run detection tests
-        avg_improvement = self.run_detection_tests(baseline_acc, class_accs, inv_mult)
         
         # Final summary
         print("\n" + "="*70)
@@ -287,16 +204,6 @@ class CatastrophicForgettingFullDetection:
         print("="*70)
         
         self.log(f"Task-Identity: {task_id:.3f}", '💥')
-        self.log(f"Inverted Multiplier: {inv_mult:.3f}", '🚀')
-        self.log(f"Average F1 Improvement: {avg_improvement:+.2f}%", 
-                 '🔥' if avg_improvement > 10 else ('✓' if avg_improvement > 0 else '⚠️'))
-        
-        if avg_improvement > 10:
-            print("\n💥 CONFIG 2 SHOWS DRAMATIC RESCUE FOR CATASTROPHIC FORGETTING!")
-        elif avg_improvement > 0:
-            print("\n✓ Config 2 shows modest improvement")
-        else:
-            print("\n⚠️ Config 2 does not improve detection for catastrophic forgetting")
         
         # Save results
         os.makedirs('results', exist_ok=True)
