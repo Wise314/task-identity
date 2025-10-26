@@ -1,0 +1,15 @@
+{
+  "test": "catastrophic_forgetting_full_detection",
+  "timestamp": "20251026_101102",
+  "task_identity": 0.0,
+  "embedding_identity": 0.5834642829226507,
+  "baseline_accuracy": 0.9931372549019608,
+  "shifted_accuracy": 0.0,
+  "class_accuracies": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}
