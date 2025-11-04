@@ -1,0 +1,8 @@
+{
+  "task_identity_overall": 0.921107816983154,
+  "task_identity_paid": 0.9491770078700169,
+  "task_identity_default": 0.0,
+  "default_detection_baseline": 81.78892011968448,
+  "default_detection_drifted": 0.5190860458790462,
+  "timestamp": "20251104_132749"
+}

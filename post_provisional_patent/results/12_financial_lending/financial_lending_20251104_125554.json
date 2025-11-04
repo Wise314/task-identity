@@ -1,0 +1,30 @@
+{
+  "test_name": "Financial Lending Behavioral Drift",
+  "dataset": "Lending Club 2007-2018 (Sample)",
+  "samples": {
+    "total": 100000,
+    "filtered": 99801,
+    "clean": 99762,
+    "test": 29929
+  },
+  "class_distribution": {
+    "paid": 24498,
+    "default": 5431
+  },
+  "task_identity": {
+    "overall": 0.9969822650901323,
+    "paid_class": 0.9999935282725523,
+    "default_class": 0.9342799496891185
+  },
+  "default_detection": {
+    "baseline_rate": 86.5034063708341,
+    "drifted_rate": 66.50708893389799,
+    "degradation_pct": 23.116219667943806
+  },
+  "accuracy": {
+    "baseline": 0.9723679374519697,
+    "drifted": 0.939189414948712
+  },
+  "detection_improvement_points": 6.270231540101379,
+  "timestamp": "20251104_125554"
+}
