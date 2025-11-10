@@ -5,7 +5,7 @@
 [![Tests](https://img.shields.io/badge/tests-11%2F11%20passing-brightgreen)](https://github.com/Wise314/task-identity)
 [![Domains](https://img.shields.io/badge/domains-4-blue)](https://github.com/Wise314/task-identity)
 [![Coverage](https://img.shields.io/badge/ML%20coverage-95%25%2B-success)](https://github.com/Wise314/task-identity)
-[![Patent](https://img.shields.io/badge/status-patent%20pending-orange)](https://github.com/Wise314/task-identity)
+[![Patent](https://img.shields.io/badge/status-patent%20filed-green)](https://github.com/Wise314/task-identity)
 
 ---
 
@@ -15,7 +15,7 @@
 - **Domains:** Computer Vision (8) | NLP (1) | Medical AI (1) | Audio (1)
 - **Coverage:** 95%+ of production ML classification workloads
 - **Datasets:** ALL real, published data (no synthetic)
-- **Status:** Patent Pending (Filed October 2025)
+- **Status:** Patent Filed - Application #63/906,072 (Oct 27, 2025)
 - **License:** MIT (Commercial licensing available)
 
 ---
@@ -311,11 +311,14 @@ task-identity/
 - ✅ Fixed save path bugs in 7 tests, verified 4 tests already correct
 - ✅ Zero synthetic data confirmed across entire validation portfolio
 
+**October 27, 2025:**
+- ✅ Provisional patent filed with USPTO
+- ✅ Application #63/906,072: "Behavioral Drift Detection for Machine Learning Classification"
+- ✅ Ready for commercial licensing discussions
+
 **October 17, 2025:**
 - ✅ All 11 tests re-verified with real data
 - ✅ Confirmed zero synthetic data across entire validation portfolio
-- ✅ Provisional patent filed with USPTO
-- ✅ Ready for commercial licensing discussions
 
 **October 16, 2025:**
 - ✅ Expanded to 11 tests across 4 domains
@@ -335,7 +338,7 @@ task-identity/
 
 ## 💼 Commercial Licensing
 
-**Status:** Available for licensing (Patent Pending - Filed October 2025)
+**Status:** Available for licensing (Patent Filed - Application #63/906,072, Oct 27, 2025)
 
 **Target Applications:**
 - **MLOps Platforms:** Datadog, Weights & Biases, Arize, WhyLabs
@@ -358,22 +361,25 @@ task-identity/
 
 ---
 
-
 📄 License
 MIT License - See LICENSE file for details.
 
 🎓 Research & Citation
 Discovery Date: October 14, 2025
 Validation Complete: October 17, 2025
+Patent Filed: October 27, 2025
+Application Number: 63/906,072
 Inventor: Shawn Barnicle
-Status: Patent Pending
+Status: Patent Filed
+
 If you use Task-Identity in your research or production systems, please cite:
-bibtex@software{task_identity_2025,
+
+@software{task_identity_2025,
   title={Task-Identity: Training-Free Behavioral Drift Detection for AI Systems},
   author={Barnicle, Shawn},
   year={2025},
   url={https://github.com/Wise314/task-identity},
-  note={Validated across 11 tests spanning computer vision, NLP, medical AI, and speech recognition}
+  note={Patent Filed - Application 63/906,072. Validated across 11 tests spanning computer vision, NLP, medical AI, and speech recognition}
 }
 
 📞 Contact & Support
@@ -389,7 +395,7 @@ Validation testing conducted with assistance from Claude (Anthropic).
 
 ---
 
-**Last Updated:** October 17, 2025  
+**Last Updated:** October 27, 2025  
 **Validation Status:** ✅ Complete (11/11 tests passing across 4 domains)  
 **Ready for:** Production evaluation, research collaboration, commercial licensing
 
