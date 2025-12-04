@@ -1,5 +1,15 @@
 # Task-Identity: Behavioral Drift Detection for AI Systems
 
+**Patent #1 in Portfolio**
+
+**Title:** Behavioral Drift Detection for Machine Learning Classification
+
+**Application Number:** 63/906,072 (Filed October 27, 2025)
+
+**Repository:** https://github.com/Wise314/task-identity
+
+# Task-Identity: Behavioral Drift Detection for AI Systems
+
 **Universal metric for detecting behavioral changes in classification models across any domain**
 
 [![Tests](https://img.shields.io/badge/tests-11%2F11%20passing-brightgreen)](https://github.com/Wise314/task-identity)
