@@ -4,6 +4,11 @@ Quick start guide for new users and AI assistants
 
 ---
 
+# 📍 Quick Terminal Access
+```bash
+cd ~/Desktop/task-identity
+```
+
 📋 What is Task-Identity?
 Task-Identity is a training-free metric that detects behavioral drift in AI classification models by comparing confusion matrices across time periods using Pearson correlation.
 Validated across 11 tests spanning 4 domains:
