@@ -1,21 +1,31 @@
-MIT License
+Copyright (c) 2026 Shawn Barnicle. All Rights Reserved.
 
-Copyright (c) 2024 Task-Identity
+PROPRIETARY SOFTWARE LICENSE — VIEWING ONLY
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This repository is made publicly available for inspection, review, and
+verification of research results only. No other rights are granted.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+You MAY:
+  - View and read the source code and documentation
+  - Cite the published papers (with proper attribution)
+  - Reference the repository in academic or technical discussion
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+You MAY NOT:
+  - Copy, modify, merge, or create derivative works
+  - Use any code, formulas, or methods in commercial or non-commercial projects
+  - Distribute, sublicense, or sell any part of this repository
+  - Use the Task-Identity method, confusion matrix correlation approach,
+    or behavioral drift detection metrics described herein in any software,
+    hardware, or research system without a commercial license
+
+PATENT NOTICE:
+The methods described in this repository are the subject of:
+  USPTO Application #63/906,072 (filed October 27, 2025)
+  USPTO Application #63/981,437 (filed February 12, 2026)
+  Additional provisional patents pending as part of a 15-patent portfolio
+
+Unauthorized use may constitute patent infringement.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
+For licensing inquiries: ShawnBarnicle@proton.me
