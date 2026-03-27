@@ -371,7 +371,6 @@ task-identity/
 
 ---
 
-📄 License
 📄 License Proprietary - Viewing Only. USPTO Applications #63/906,072 and #63/981,437. Part of a 15-patent portfolio. For licensing inquiries: ShawnBarnicle@proton.me
 
 🎓 Research & Citation
