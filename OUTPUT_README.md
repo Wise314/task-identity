@@ -818,54 +818,6 @@ Covering 90%+ of production ML classification workloads.
    ✓ Medical AI: 1 test (Wisconsin Breast Cancer)
    → Total: 10 tests across 3 domains - ALL REAL DATASETS
 
----
-
-## 📊 Summary of All Test Results
-
-| Test # | Test Name | Task-Identity | Key Finding |
-|--------|-----------|---------------|-------------|
-| 1 | Label Space Divergence | 0.000 | 58.3% detection gap vs embedding |
-| 2 | Progressive Noise | 0.780-1.000 | Smooth degradation tracking |
-| 3 | Domain Shift | 0.046 | 95.4% cross-domain divergence |
-| 4 | Targeted Poisoning | 0.873 (0.17 per-class) | Pinpointed compromised classes |
-| 5 | Cross-Domain Training | 0.000 | Training provenance verification |
-| 6 | Class Imbalance | 0.576 | Hidden bias (accuracy stable) |
-| 7 | Training Dynamics | 1.000 | 60% compute savings |
-| 8 | Model Compression | 0.384 | Deployment disaster prevention |
-| 9 | Text Classification | 0.036 | NLP domain validation |
-| 10 | Medical Diagnosis | 0.000 | Medical AI safety |
-| 11 | Speech Recognition | 0.000 | Audio domain validation |
-
----
-
-## ✅ Verification Status
-
-- **Total Tests:** 11/11 complete
-- **Domains Validated:** 4 (Computer Vision, NLP, Medical AI, Audio)
-- **All Real Datasets:** ✅ Verified
-- **Consistency:** All outputs match expected behavioral patterns
-- **Patent Readiness:** ✅ Complete
-
----
-
-## 📝 How to Use This Document
-
-**For New AI Chats:**
-- Paste relevant test outputs to verify numbers match
-- Cross-check Task-Identity scores
-- Confirm behavioral patterns are consistent
-
-**For Test Reruns:**
-- Compare new outputs against these reference outputs
-- Verify Task-Identity scores are within expected range (±0.05 due to random seed)
-- Flag any major deviations for investigation
-
-**For Patent Documentation:**
-- These are the verified outputs supporting all patent claims
-- Test 1 (58.3% gap), Test 6 (hidden bias), Tests 9-11 (universality)
-
----
-
 ======================================================================
 TEST 11: AUDIO CLASSIFICATION BEHAVIORAL DRIFT
 ======================================================================
@@ -997,6 +949,54 @@ Task-Identity validates across:
    ✓ NLP: 1 test
    ✓ Medical AI: 1 test
    ✓ Audio/Speech: 1 test
+
+---
+
+## 📊 Summary of All Test Results
+
+| Test # | Test Name | Task-Identity | Key Finding |
+|--------|-----------|---------------|-------------|
+| 1 | Label Space Divergence | 0.000 | 58.3% detection gap vs embedding |
+| 2 | Progressive Noise | 0.780-1.000 | Smooth degradation tracking |
+| 3 | Domain Shift | 0.046 | 95.4% cross-domain divergence |
+| 4 | Targeted Poisoning | 0.873 (0.17 per-class) | Pinpointed compromised classes |
+| 5 | Cross-Domain Training | 0.000 | Training provenance verification |
+| 6 | Class Imbalance | 0.576 | Hidden bias (accuracy stable) |
+| 7 | Training Dynamics | 1.000 | 60% compute savings |
+| 8 | Model Compression | 0.384 | Deployment disaster prevention |
+| 9 | Text Classification | 0.036 | NLP domain validation |
+| 10 | Medical Diagnosis | 0.000 | Medical AI safety |
+| 11 | Speech Recognition | 0.000 | Audio domain validation |
+
+---
+
+## ✅ Verification Status
+
+- **Total Tests:** 11/11 complete
+- **Domains Validated:** 4 (Computer Vision, NLP, Medical AI, Audio)
+- **All Real Datasets:** ✅ Verified
+- **Consistency:** All outputs match expected behavioral patterns
+- **Patent Readiness:** ✅ Complete
+
+---
+
+## 📝 How to Use This Document
+
+**For New AI Chats:**
+- Paste relevant test outputs to verify numbers match
+- Cross-check Task-Identity scores
+- Confirm behavioral patterns are consistent
+
+**For Test Reruns:**
+- Compare new outputs against these reference outputs
+- Verify Task-Identity scores are within expected range (±0.05 due to random seed)
+- Flag any major deviations for investigation
+
+**For Patent Documentation:**
+- These are the verified outputs supporting all patent claims
+- Test 1 (58.3% gap), Test 6 (hidden bias), Tests 9-11 (universality)
+
+---
 
 **Last Updated:** October 18, 2024  
 **Status:** ✅ All 11 tests verified and documented  
