@@ -28,6 +28,16 @@
 - **Status:** Patent Filed - Application #63/906,072 (Oct 27, 2025)
 - **License:** MIT (Commercial licensing available)
 
+## Why This Is Patentable
+
+A fair question is whether Task-Identity is just abstract math or an abstract idea about organizing human activity, which would make it unpatentable under Alice v. CLS Bank.
+
+It is not. Task-Identity is a specific technical method applied to a specific technical problem. It does not claim the idea of monitoring AI models. It claims a concrete process: generate confusion matrices from model predictions, flatten them to vectors, compute their Pearson correlation, and use that scalar output to detect behavioral drift. Every step operates on concrete computational artifacts and produces a concrete result.
+
+The evidence backs this up. Embedding similarity stayed at 0.583 during a complete model collapse that Task-Identity correctly read as 0.000. Accuracy held steady at 93.6% while Task-Identity detected a 42.4% behavioral shift. These are not abstract outcomes — they are specific, measurable technical improvements over existing methods, which is exactly the bar Alice requires.
+
+The patent covers the method, not the concept.
+
 ---
 
 ## 🎯 Overview
