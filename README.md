@@ -32,11 +32,13 @@
 
 A fair question is whether Task-Identity is just abstract math or an abstract idea about organizing human activity, which would make it unpatentable under Alice v. CLS Bank.
 
-It is not. Task-Identity is a specific technical method applied to a specific technical problem. It does not claim the idea of monitoring AI models. It claims a concrete process: generate confusion matrices from model predictions, flatten them to vectors, compute their Pearson correlation, and use that scalar output to detect behavioral drift. Every step operates on concrete computational artifacts and produces a concrete result.
+It is not, for a specific reason: Task-Identity qualifies as a practical application integrated into a specific technical process, which is the standard the USPTO uses to distinguish patentable methods from abstract ideas.
 
-The evidence backs this up. Embedding similarity stayed at 0.583 during a complete model collapse that Task-Identity correctly read as 0.000. Accuracy held steady at 93.6% while Task-Identity detected a 42.4% behavioral shift. These are not abstract outcomes — they are specific, measurable technical improvements over existing methods, which is exactly the bar Alice requires.
+Every step of the method operates on concrete computational artifacts. It takes model predictions and true labels, generates confusion matrices, flattens them to vectors, and computes their Pearson correlation. The output is not a floating abstraction — it is a scalar signal that triggers a concrete downstream technical action: block a deployment, raise a monitoring alert, halt a training run, or flag a model for security review. That chain from computation to real-world technical consequence is what separates a practical application from an abstract idea.
 
-The patent covers the method, not the concept.
+The method also constitutes an improvement to existing technology. Task-Identity detects a specific class of failure — behavioral drift that is invisible to both accuracy monitoring and embedding-based drift detection — that no existing method caught. The validation results demonstrate this concretely: embedding similarity stayed at 0.583 during a complete model collapse that Task-Identity correctly read as 0.000, a 58.3 percentage point gap. Accuracy held at 93.6% while Task-Identity detected a 42.4% behavioral shift. These are measurable technical improvements over the existing state of the art in ML monitoring, not a different way of doing the same abstract thing.
+
+The patent covers the method and its practical application. It does not claim the concept of monitoring AI models in the abstract.
 
 ---
 
