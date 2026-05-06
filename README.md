@@ -16,6 +16,7 @@
 [![Domains](https://img.shields.io/badge/domains-4-blue)](https://github.com/Wise314/task-identity)
 [![Coverage](https://img.shields.io/badge/ML%20coverage-95%25%2B-success)](https://github.com/Wise314/task-identity)
 [![Patent](https://img.shields.io/badge/status-patent%20filed-green)](https://github.com/Wise314/task-identity)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20048912.svg)](https://doi.org/10.5281/zenodo.20048912)
 
 ---
 
@@ -27,6 +28,45 @@
 - **Datasets:** ALL real, published data (no synthetic)
 - **Status:** Patent Filed - Application #63/906,072 (Oct 27, 2025)
 - **License:** MIT (Commercial licensing available)
+
+- **License:** MIT (Commercial licensing available)
+
+---
+
+## 📄 Scientific Paper
+
+The full scientific paper is available in this repository and on Zenodo:
+
+- **PDF:** [task-identity-scientific-paper.pdf](task-identity-scientific-paper.pdf)
+- **Zenodo DOI:** [10.5281/zenodo.20048912](https://doi.org/10.5281/zenodo.20048912)
+- **Citation:** Barnicle, S. (2026). Task-Identity: Detecting Behavioral Drift Beyond Accuracy and Embedding Similarity. Zenodo. https://doi.org/10.5281/zenodo.20048912
+
+---
+
+## 🔬 Scientific Discoveries
+
+This repository documents three core scientific discoveries arising from the Task-Identity validation work. Each discovery is supported by real-data experiments using published benchmark datasets.
+
+### Discovery 1: Embedding Similarity and Behavioral Identity Measure Fundamentally Different Things and Diverge Catastrophically During Failure
+
+Structural embedding similarity and Task-Identity are not correlated signals and decouple at exactly the moment that matters most. Embedding similarity remained at 0.583 during a complete model failure while Task-Identity correctly read 0.000. They measure different things: representational structure vs decision behavior.
+
+**Evidence:** 99.3% to 0.0% accuracy collapse. Embedding similarity 0.583. Task-Identity 0.000. Gap of 58.3 percentage points.
+
+### Discovery 2: Accuracy is Insufficient to Detect Behavioral Drift
+
+A model can appear completely stable by traditional accuracy metrics while making fundamentally different decisions. This is empirically demonstrated, not hypothetical.
+
+**Evidence:** Accuracy held at 93.6% to 93.7% while Task-Identity detected a 42.4% behavioral shift under class imbalance (Test 6).
+
+### Discovery 3: Overall Behavioral Identity Scores Mask Catastrophic Class-Level Failures in Imbalanced Domains
+
+Aggregate identity scores actively conceal failure. Per-class analysis is not optional in imbalanced domains. It is the only signal that works.
+
+**Evidence:** Vision (Test 4): overall Task-Identity 0.873, poisoned classes 0.17. Financial extension (2.26M loans): overall Task-Identity 0.921, default class 0.000, representing 99.4% degradation in minority class detection.
+
+---
+
 
 ## Why This Is Patentable
 
@@ -395,12 +435,14 @@ Status: Patent Filed
 
 If you use Task-Identity in your research or production systems, please cite:
 
-@software{task_identity_2025,
-  title={Task-Identity: Training-Free Behavioral Drift Detection for AI Systems},
+@misc{barnicle2026taskidentity,
+  title={Task-Identity: Detecting Behavioral Drift Beyond Accuracy and Embedding Similarity},
   author={Barnicle, Shawn},
-  year={2025},
-  url={https://github.com/Wise314/task-identity},
-  note={Patent Filed - Application 63/906,072. Validated across 11 tests spanning computer vision, NLP, medical AI, and speech recognition}
+  year={2026},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.20048912},
+  url={https://doi.org/10.5281/zenodo.20048912},
+  note={Patent Filed - U.S. Provisional Applications 63/906,072 and 63/981,437. Validated across 11 tests spanning computer vision, NLP, medical AI, and speech recognition}
 }
 
 📞 Contact & Support
@@ -416,8 +458,9 @@ Validation testing conducted with assistance from Claude (Anthropic).
 
 ---
 
-**Last Updated:** October 27, 2025  
+**Last Updated:** May 6, 2026  
 **Validation Status:** ✅ Complete (11/11 tests passing across 4 domains)  
+**Paper Published:** Zenodo DOI 10.5281/zenodo.20048912 (May 6, 2026)  
 **Ready for:** Production evaluation, research collaboration, commercial licensing
 
 **Datasets Used (All Real, Published):**
